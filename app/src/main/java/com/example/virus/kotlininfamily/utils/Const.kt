@@ -9,5 +9,6 @@ object Const {
     val USER_AUTH_INFORMATION:String ="userInfo"
     val EXTRA_CATEGORY: String = "extra_category_id"
     val EXTRA_SERIALIZABLE: String = "serialazable"
+    val EXTRA_SPECIALIST_ID:String ="specialistArticle"
 
 }

@@ -1,6 +1,7 @@
 package com.example.virus.kotlininfamily.data
 
 import com.example.virus.kotlininfamily.models.Categories
+import com.example.virus.kotlininfamily.models.SpecialistArticle
 import com.example.virus.kotlininfamily.models.SpecialistList
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -19,4 +20,7 @@ interface ForumService {
 
     @GET("people/")
     fun getSpecialistList():Call<List<SpecialistList>>
+
+    @GET("people/{id}")
+    fun getSpecialistArticle(@Path("id") id:Int): Call<SpecialistArticle>
 }

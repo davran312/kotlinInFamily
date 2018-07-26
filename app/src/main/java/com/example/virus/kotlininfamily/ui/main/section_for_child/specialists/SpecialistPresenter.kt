@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_parent.specialists
+package com.example.virus.kotlininfamily.ui.main.section_for_child.specialists
 
 
 import com.example.virus.kotlininfamily.StartApplication
@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SpecialistPresenter(val view : SpecialistContract.View?) :  SpecialistContract.Presenter{
+class SpecialistPresenter(val view : SpecialistContract.View?) : SpecialistContract.Presenter {
 
 
     override fun getSpecialistList(){

@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_parent.categories
+package com.example.virus.kotlininfamily.ui.main.section_for_child.categories
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
-import com.example.virus.kotlininfamily.ui.main.section_for_parent.categories.CategoriesAdapter
-import com.example.virus.kotlininfamily.ui.main.section_for_parent.categories.CategoryContract
-import com.example.virus.kotlininfamily.ui.main.section_for_parent.categories.CategoryPresenter
-import com.example.virus.kotlininfamily.ui.main.section_for_parent.categoriesArticle.ArticleActivity
-import com.example.virus.kotlininfamily.ui.main.section_for_parent.specialists.SpecialistActivity
+import com.example.virus.kotlininfamily.ui.main.section_for_child.categoriesArticle.ArticleActivity
 import com.example.virus.kotlininfamily.utils.Const
 import kotlinx.android.synthetic.main.activity_main_menu.*
 

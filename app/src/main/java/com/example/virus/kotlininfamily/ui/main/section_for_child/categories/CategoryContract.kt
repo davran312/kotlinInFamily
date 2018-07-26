@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_parent.categories
+package com.example.virus.kotlininfamily.ui.main.section_for_child.categories
 
 import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.utils.IProgressBar

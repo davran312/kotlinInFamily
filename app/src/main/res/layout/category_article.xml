@@ -12,13 +12,13 @@
     <TextView
         android:id="@+id/tw_article_title"
         android:layout_width="316dp"
-        android:layout_height="90dp"
+        android:layout_height="93dp"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="@dimen/size_20"
         android:layout_marginTop="10dp"
         android:text="Причины ссор между детьми"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/size_20"
+        android:textSize="@dimen/size_18"
         android:textStyle="bold" />
 
     <ImageView

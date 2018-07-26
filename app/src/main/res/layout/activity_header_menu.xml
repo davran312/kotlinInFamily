@@ -4,14 +4,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/blue"
+    android:background="@color/white"
     android:paddingTop="40dp"
     android:paddingBottom="50dp">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/nested_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:background="@color/white"
+        />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:fillViewport="true"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +28,7 @@
                 android:layout_width ="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/size_14"
-                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_marginTop="?android:attr/actionBarSize"
                 app:cardBackgroundColor="@android:color/white"
                 app:cardElevation="2dp">
                 <LinearLayout

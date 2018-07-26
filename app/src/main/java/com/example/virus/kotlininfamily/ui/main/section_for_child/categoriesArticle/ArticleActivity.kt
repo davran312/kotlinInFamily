@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_parent.categoriesArticle
+package com.example.virus.kotlininfamily.ui.main.section_for_child.categoriesArticle
 
 import android.os.Bundle
 import com.example.virus.kotlininfamily.R

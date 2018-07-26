@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_parent.categoriesArticle
+package com.example.virus.kotlininfamily.ui.main.section_for_child.categoriesArticle
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
-import com.example.virus.kotlininfamily.models.Category
 import kotlinx.android.synthetic.main.category_article.view.*
-import kotlinx.android.synthetic.main.item_category.view.*
 
 class ArticleAdapter (private var item:Categories) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

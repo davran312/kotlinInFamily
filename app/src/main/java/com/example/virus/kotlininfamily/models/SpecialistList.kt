@@ -1,5 +1,6 @@
 package com.example.virus.kotlininfamily.models
 
-import com.google.gson.annotations.SerializedName
+import com.example.virus.kotlininfamily.models.Specialist
+import java.io.Serializable
 
-class SpecialistList(var field:String?,var people:List<Specialist>)
+class SpecialistList(var field:String?, var people:ArrayList<Specialist>) : Serializable
