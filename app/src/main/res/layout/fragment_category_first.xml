@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainMenuActivity">
+    <TextView
+        android:layout_width = "match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/size_16"
+        android:text="@string/category1"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        tools:ignore="SpUsage" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/size_16"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <include
+            android:id="@+id/information"
+            layout="@layout/item_shadow_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/section_information"/>
+        <include
+            android:textColor="@color/blue"
+            android:id="@+id/documents"
+            layout="@layout/item_shadow_button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/section_documents"/>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/test"
+        layout="@layout/item_shadow_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/section_test"/>
+
+
+</LinearLayout>

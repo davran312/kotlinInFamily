@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.virus.infamily.mvp.ui.libs.shadow_view.ShadowView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:elevation="5dp"
+    android:padding="@dimen/size_10"
+    app:cornerRadius="@dimen/size_16"
+    app:shadowColor="@color/colorLightBlue"
+    app:shadowDy="10"
+    app:shadowMargin="@dimen/size_12"
+    app:shadowRadius="@dimen/size_20">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/size_60"
+        android:text="test"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/size_14"
+        app:layout_gravity="center"
+        tools:ignore="SpUsage" />
+
+</com.example.virus.infamily.mvp.ui.libs.shadow_view.ShadowView>

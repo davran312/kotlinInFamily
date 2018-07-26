@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_120"
+    android:layout_margin="@dimen/size_8"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/medik"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_medium"
+        android:gravity="center"
+        android:id="@+id/titleView"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+</android.support.v7.widget.CardView>

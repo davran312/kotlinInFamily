@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_120">120dp</dimen>
+
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_mini">4dp</dimen>
+    <dimen name="margin_mid">6dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medsmall">10dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_large">30dp</dimen>
+
+    <dimen name="view_radius">10dp</dimen>
+    <dimen name="btn_radius">20dp</dimen>
+
+    <dimen name="small_text_size">14dp</dimen>
+    <dimen name="text_size">16dp</dimen>
+    <dimen name="medium_text_size">19dp</dimen>
+    <dimen name="big_text_size">22dp</dimen>
+    <dimen name="huge_text_size">26dp</dimen>
+
+    <dimen name="size_1">1dp</dimen>
+    <dimen name="size_2">2dp</dimen>
+    <dimen name="size_3">3dp</dimen>
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_5">5dp</dimen>
+    <dimen name="size_6">6dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_12">12dp</dimen>
+    <dimen name="size_14">14dp</dimen>
+    <dimen name="size_15">15dp</dimen>
+    <dimen name="size_17">17dp</dimen>
+    <dimen name="size_18">18dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_22">22dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_25">25dp</dimen>
+    <dimen name="size_26">26dp</dimen>
+    <dimen name="size_30">30dp</dimen>
+    <dimen name="size_35">35dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_45">45dp</dimen>
+    <dimen name="size_50">50dp</dimen>
+    <dimen name="size_60">60dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_70">70dp</dimen>
+    <dimen name="size_80">80dp</dimen>
+    <dimen name="size_90">90dp</dimen>
+    <dimen name="size_100">100dp</dimen>
+    <dimen name="size_130">130dp</dimen>
+    <dimen name="size_140">140dp</dimen>
+    <dimen name="size_150">150dp</dimen>
+    <dimen name="size_160">160dp</dimen>
+    <dimen name="size_180">180dp</dimen>
+    <dimen name="size_200">200dp</dimen>
+    <dimen name="size_220">220dp</dimen>
+    <dimen name="size_250">250dp</dimen>
+    <dimen name="size_280">280dp</dimen>
+    <dimen name="size_300">300dp</dimen>
+    <dimen name="size_350">350dp</dimen>
+    <dimen name="size_400">400dp</dimen>
+    <dimen name="size_500">500dp</dimen>
+
+    <dimen name="toolbar_double_height">112dp</dimen>
+    <dimen name="cardview_toolbar_spacer">14dp</dimen>
+
+    <!--Dosya values-->
+    <dimen name="title_size">22sp</dimen>
+    <dimen name="distance_between_logo_title">20dp</dimen>
+    <dimen name="margin_in_rectangle">12sp</dimen>
+    <dimen name="side_margin_for_every_frame">24dp</dimen>
+    <dimen name="top_margin_in_sbor_documentov">20dp</dimen>
+    <dimen name="side_margin_in_sbor_documentov">20dp</dimen>
+    <dimen name="margin_between_cells">17dp</dimen>
+    <dimen name="space_between_info_user_med_spravka">25sp</dimen>
+    <dimen name="space_between_spravka_and_med_spravka">12dp</dimen>
+    <dimen name="space_between_spravka_and_submit">33dp</dimen>
+    <dimen name="space_between_medspravka_title_and_description">14dp</dimen>
+    <dimen name="button_text_size">12sp</dimen>
+    <dimen name="description_text_size">15sp</dimen>
+    <dimen name="text_size_for_documents">19sp</dimen>
+    <dimen name="space_between_adresss_and_submit_in_medspravka">20dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>
