@@ -11,7 +11,7 @@ import com.example.virus.kotlininfamily.models.TestQuestion
 import kotlinx.android.synthetic.main.test_simple_list.view.*
 
 class TestAdapter (private var list: Array<String>,
-                   private var map:HashMap<Int,TestQuestion>,
+                   var map:HashMap<Int,TestQuestion>,
                    var listener:Listener): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 
@@ -29,10 +29,16 @@ class TestAdapter (private var list: Array<String>,
         fun bind(position:Int){
             itemView.titleView.text = list.get(position)
 
-            itemView.btn_yes.setBackgroundColor(if(map.containsKey(position) && map[position]!!.isResult!!)
-                Color.parseColor("#6ED3FF") else Color.parseColor("#1f000000"))
-            itemView.btn_no.setBackgroundColor(if(map.containsKey(position) && !map[position]!!.isResult!!)
-            Color.parseColor("#6ED3FF") else Color.parseColor("#1f000000"))
+            itemView.btn_yes.setBackgroundColor(
+                    if(map.containsKey(position) && map[position]!!.isResult!!)
+                         Color.parseColor("#6ED3FF")
+                    else
+                        Color.parseColor("#1f000000"))
+            itemView.btn_no.setBackgroundColor(
+                    if(map.containsKey(position) && !map[position]!!.isResult!!)
+                        Color.parseColor("#6ED3FF")
+                    else
+                        Color.parseColor("#1f000000"))
 
             itemView.btn_yes.tag = position
             itemView.btn_yes.setOnClickListener{v->

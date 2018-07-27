@@ -2,6 +2,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_t
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
@@ -15,11 +16,19 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         val questions = resources.getStringArray(R.array.questions_array)
-        btn_result.setOnClickListener{
-            startActivity(Intent(this,TestResultActivity::class.java))
-        }
+
         adapter = TestAdapter(questions,map,this)
+        btn_result.setOnClickListener{
+            if(adapter.map.size == 15) {
+                val intent = Intent(this, TestResultActivity::class.java)
+                intent.putExtra("map", adapter.map)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this,"Вы ответили не на все вопросы",Toast.LENGTH_LONG).show()
+            }
+        }
         recyclerView.adapter = adapter
+
 
     }
     override fun onItemSelectedAt(position: Int, result: TestQuestion) {

@@ -10,5 +10,7 @@ object Const {
     val EXTRA_CATEGORY: String = "extra_category_id"
     val EXTRA_SERIALIZABLE: String = "serialazable"
     val EXTRA_SPECIALIST_ID:String ="specialistArticle"
+    val ONE_CORRECT_QUESTION_IN_PERCENTAGE = 6.66
+
 
 }

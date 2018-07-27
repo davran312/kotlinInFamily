@@ -365,9 +365,7 @@
     <string name="answer1">Да</string>
     <string name="answer2">Нет</string>
 
-    <string name="normal_result_text">Вы готовы стать приемным родителем на </string>
-    <string name="excellent_result_text">Вы идеально подходите на роль родителя/опекуна</string>
-    <string name="bad_result_text">Вы готовы стать приемным родителем на %s %, рекомендуем обсудить вопросы данного теста со специалистом (психологом, соц.работником, опытными приёмными родителями)</string>
+
     <string name="persentage_text">%d</string>
     <string name="answered">Ответить</string>
     <string name="title_activity_login">Авторизация</string>
@@ -392,9 +390,40 @@
     <string name="auth_descripton">Пожалуйста заполните все нижеописанные поля
     для возможности отправки зявки,а так же чтобы при случае необходимости мы смогли
     с вами связаться</string>
+
+    <!-- Strings related to test -->
     <string name="submit_test">ЗАКОНЧИТЬ ТЕСТ</string>
     <string name="test_no">НЕТ</string>
     <string name="test_yes">ДА</string>
+
+    <!-- Strings related to result of test -->
+    <string name="normal_result">Вы готовы стать приемным родителем на %s %%</string>
+    <string name="excellent_result">Вы на %s %% подходите на роль родителя/опекуна </string>
+    <string name="bad_result">Вы готовы стать приемным родителем на %s %%, рекомендуем обсудить вопросы данного теста со специалистом (психологом, соц.работником, опытными приёмными родителями)</string>
+
+    <string-array name="noAnswerIndexesAreRight">
+        <item>2</item>
+        <item>7</item>
+        <item>11</item>
+        <item>13</item>
+    </string-array>
+
+    <string-array name="yesAnswerIndexesAreRight">
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>14</item>
+        <item>12</item>
+        <item>15</item>
+
+    </string-array>
+
+
 
 </resources>
 
