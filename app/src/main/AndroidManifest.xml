@@ -33,6 +33,7 @@
         <activity android:name=".ui.main.section_for_child.specialist_article.SpecialistArticleActivity"/>
         <activity android:name=".ui.main.section_for_child.SpecialistNames.SpecialistNamesActivity"/>
         <activity android:name=".ui.main.section_for_child.ChildActivity"/>
+        <activity android:name=".ui.main.section_become_parent.section_test.TestResultActivity"/>
         <activity android:name="com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity"/>
         <activity android:name=".ui.main.section_for_child.categories.CategoriesActivity" />
         <activity android:name=".ui.main.section_become_parent.BecomeParentActivity" />
@@ -41,7 +42,8 @@
         <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentFillActivity" />
         <activity android:name=".ui.main.section_become_parent.section_authorization.LoginActivity"/>
         <activity android:name=".ui.main.section_become_parent.section_test.TestActivity"/>
-        <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity"/>
+        <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

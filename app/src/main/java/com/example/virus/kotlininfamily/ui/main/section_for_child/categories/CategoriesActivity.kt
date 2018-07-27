@@ -20,8 +20,21 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoriesAdap
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+        setActionBarTitle()
         init()
     }
+
+    private fun setActionBarTitle() {
+        supportActionBar?.title = when(intent.getIntExtra("titleId",0)){
+            0-> "Часто задаваемые вопросы"
+            1-> "Ресурсы по воспитанию детей"
+            2-> "Поддержка экспертов"
+            3-> "Досуг для детей"
+            4-> "Список экспертов"
+            else ->"InFamily"
+        }
+    }
+
     private fun init(){
         presenter = CategoryPresenter(this)
         presenter.getCategoriesById(intent.getIntExtra(Const.EXTRA_CATEGORY,1))

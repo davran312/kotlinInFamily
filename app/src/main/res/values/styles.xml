@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="CustomTheme" parent="Theme.AppCompat.Light">
@@ -12,6 +12,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/colorLightBlue</item>
         <item name="colorPrimaryDark">@color/blue</item>
+        <item name ="android:titleTextColor" tools:targetApi="m">@color/white</item>
         <item name="android:actionBarStyle">@color/colorLightBlue</item>
         <item name="cardViewStyle">@style/CardView</item>
     </style>

@@ -18,7 +18,7 @@ class BecomeParentActivity: BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_category_first)
-
+        supportActionBar?.title=resources.getString(R.string.category1)
         information.textView.text = getString(R.string.section_information)
         documents.textView.text = getString(R.string.section_documents)
         test.textView.text = FileUtils.fromHtml(getString(R.string.section_test))

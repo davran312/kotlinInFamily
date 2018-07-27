@@ -17,7 +17,7 @@ class ParentActivity :BaseActivity(),MainMenuAdapter.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_header_menu)
-
+        supportActionBar?.title = resources.getString(R.string.category3)
 
     val list = ArrayList<Category>()
     list.add(Category(getString(R.string.advices), R.drawable.conflict))

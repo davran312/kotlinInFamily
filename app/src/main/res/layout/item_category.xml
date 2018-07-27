@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <android.support.v7.widget.CardView id="@+id/main_layout"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size_120"
+    android:layout_height="@dimen/size_150"
     android:layout_margin="@dimen/size_8"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
@@ -10,6 +16,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/first_section"/>
+    </android.support.v7.widget.CardView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,4 +26,5 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textStyle="bold"/>
-</android.support.v7.widget.CardView>
+
+</LinearLayout>

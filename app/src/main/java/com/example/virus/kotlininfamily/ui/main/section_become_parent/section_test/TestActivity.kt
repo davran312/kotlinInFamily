@@ -1,5 +1,6 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_test
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
@@ -14,7 +15,9 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         val questions = resources.getStringArray(R.array.questions_array)
-
+        btn_result.setOnClickListener{
+            startActivity(Intent(this,TestResultActivity::class.java))
+        }
         adapter = TestAdapter(questions,map,this)
         recyclerView.adapter = adapter
 

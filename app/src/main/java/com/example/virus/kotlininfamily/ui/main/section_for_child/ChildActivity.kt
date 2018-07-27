@@ -23,6 +23,7 @@ class ChildActivity: BaseActivity(), MainMenuAdapter.Listener {
     val list = ArrayList<Category>()
     override fun onCreate(saveInstanceState: Bundle?){
         super.onCreate(saveInstanceState)
+        supportActionBar?.title = resources.getString(R.string.category2)
         setContentView(R.layout.activity_main_menu)
         list.add(Category("Часто задаваемые вопросы", R.drawable.faq))
         list.add(Category("Ресурсы по воспитанию детей", R.drawable.second))
@@ -50,7 +51,9 @@ class ChildActivity: BaseActivity(), MainMenuAdapter.Listener {
         }
         val intent=  Intent(this, CategoriesActivity::class.java)
         intent.putExtra(Const.EXTRA_CATEGORY, CATEGORY_ID)
-        startActivity(intent)
+            intent.putExtra("titleId",position)
+
+            startActivity(intent)
     }
 
 }
