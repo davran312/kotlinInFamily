@@ -1,6 +1,6 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_test
 
-import android.annotation.SuppressLint
+
 import android.os.Bundle
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
@@ -25,7 +25,13 @@ class TestResultActivity : BaseActivity() {
         getCorrectAnswersInPercentage()
 
         setResult()
+        setProgressOnBar()
 
+    }
+
+    private fun setProgressOnBar() {
+        progressBar.progress = percentageOfCorrectAnswers
+        txtProgress.text = percentageOfCorrectAnswers.toString() + "%"
     }
 
 

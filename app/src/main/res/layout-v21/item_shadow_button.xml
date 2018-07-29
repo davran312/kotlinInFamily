@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:minHeight="@dimen/size_60"
-        android:text="test"
+        android:text="Какой-то текст"
         android:textColor="@color/blue"
         android:textSize="@dimen/size_14"
         app:layout_gravity="center"
