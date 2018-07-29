@@ -1,10 +1,12 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_test
 
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
+import com.example.virus.kotlininfamily.ui.main.section_become_parent.BecomeParentActivity
 import com.example.virus.kotlininfamily.utils.Const.ONE_CORRECT_QUESTION_IN_PERCENTAGE
 import kotlinx.android.synthetic.main.activity_test_result.*
 import kotlin.math.roundToInt
@@ -26,19 +28,14 @@ class TestResultActivity : BaseActivity() {
 
         setResult()
         setProgressOnBar()
+        setOnSubmitButtonClickListener()
 
     }
-
-    private fun setProgressOnBar() {
-        progressBar.progress = percentageOfCorrectAnswers
-        txtProgress.text = percentageOfCorrectAnswers.toString() + "%"
-    }
-
 
     private fun setResult() {
 
         if (percentageOfCorrectAnswers == 100) {
-            result_text_view.text = getString(R.string.excellent_result, percentageOfCorrectAnswers.toString())
+            result_text_view.text = getString(R.string.excellent_result)
         } else if (percentageOfCorrectAnswers <= 100 && percentageOfCorrectAnswers >= 70) {
             result_text_view.text =  getString(R.string.normal_result, percentageOfCorrectAnswers.toString())
         } else if (percentageOfCorrectAnswers < 70) {
@@ -46,6 +43,10 @@ class TestResultActivity : BaseActivity() {
         }
     }
 
+    private fun setProgressOnBar() {
+        progressBar.progress = percentageOfCorrectAnswers
+        txtProgress.text = percentageOfCorrectAnswers.toString() + "%"
+    }
 
     private fun getCorrectAnswersInPercentage() {
 
@@ -80,6 +81,16 @@ class TestResultActivity : BaseActivity() {
         indexesYesAnswersAreCorrect = resources.getStringArray(R.array.yesAnswerIndexesAreRight)
         indexesNoAnswersAreCorrect = resources.getStringArray(R.array.noAnswerIndexesAreRight)
         hashMap = intent.getSerializableExtra("map") as HashMap<Int, TestQuestion>
+
+    }
+
+    private fun setOnSubmitButtonClickListener(){
+        btn_submit_result.setOnClickListener {
+
+            val intent = Intent(this, BecomeParentActivity::class.java)
+            startActivity(intent)
+
+        }
 
     }
 }

@@ -8,9 +8,9 @@
         android:width="5dp"/>
 
     <corners
-        android:bottomLeftRadius="12dp"
-        android:bottomRightRadius="12dp"
-        android:topLeftRadius="12dp"
-        android:topRightRadius="12dp" />
+        android:bottomLeftRadius="36dp"
+        android:bottomRightRadius="36dp"
+        android:topLeftRadius="36dp"
+        android:topRightRadius="36dp" />
 
 </shape>

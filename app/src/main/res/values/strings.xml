@@ -398,8 +398,10 @@
 
     <!-- Strings related to result of test -->
     <string name="normal_result">Вы готовы стать приемным родителем на %s %%</string>
-    <string name="excellent_result">Вы на %s %% подходите на роль родителя/опекуна </string>
+    <string name="excellent_result">Вы идеально подходите на роль родителя/опекуна </string>
     <string name="bad_result">Вы готовы стать приемным родителем на %s %%, рекомендуем обсудить вопросы данного теста со специалистом (психологом, соц.работником, опытными приёмными родителями)</string>
+    <string name="your_result_text">Ваш результат:</string>
+    <string name="result_submit_text">Подтвердить</string>
 
     <string-array name="noAnswerIndexesAreRight">
         <item>2</item>
