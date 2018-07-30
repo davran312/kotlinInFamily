@@ -29,7 +29,7 @@ class DocumentAdapter(private var list: Array<String>,
 
     inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         fun bind(position: Int) {
-            itemView.documents_list_tw.text = list.get(position)
+            itemView.document_name.text = list.get(position)
             if(map.containsKey(position)) {
                 itemView.setBackgroundColor(Color.parseColor("#82FF95"))
                 // Glide.with(itemView).load(R.drawable.checked).into(itemView.imageView)

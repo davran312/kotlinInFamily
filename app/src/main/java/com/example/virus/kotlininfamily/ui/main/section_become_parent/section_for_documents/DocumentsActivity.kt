@@ -30,7 +30,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         initVariables()
         initAdapter()
 
-        btn_sendApplication.setOnClickListener{
+        button_send_request.setOnClickListener{
             sendApplication()
         }
 
@@ -49,8 +49,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     private fun initAdapter() {
         adapter = DocumentAdapter(resources.getStringArray
         (com.example.virus.kotlininfamily.R.array.documents_list),map,this)
-        recyclerViewForDoc.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
-        recyclerViewForDoc.adapter = adapter
+        recyclerViewOfDocuments.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        recyclerViewOfDocuments.adapter = adapter
     }
 
     fun sendApplication(){

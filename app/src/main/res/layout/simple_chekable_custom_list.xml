@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+
+<com.example.virus.infamily.mvp.ui.libs.shadow_view.ShadowView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:foreground="?android:attr/selectableItemBackground"
-    android="@+id/cardlist_item"
-    card_view:cardBackgroundColor="@android:color/white">
 
-    <TextView
-        android:gravity="center_horizontal"
+    android:layout_marginEnd="4dp"
+    android:layout_marginStart="4dp"
+    android:elevation="5dp"
+    app:cornerRadius="@dimen/size_16"
+    app:shadowColor="@color/colorLightBlue"
+    app:shadowDy="10"
+    app:shadowMargin="4dp"
+    app:shadowRadius="@dimen/size_20">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/spravka"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/documents_list_tw"
-        android:paddingTop="5dp"
-        android:textSize="17dp"
-        android:text="Полная автобиография"
-        />
-</android.support.v7.widget.CardView>
+        android:layout_height="wrap_content"
+        android:background="@drawable/dosya_rectangle">
+
+        <ImageView
+            android:layout_marginStart="@dimen/size_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ellipse" />
+
+        <TextView
+
+            style="@style/subtitlesInDocuments"
+            android:id="@+id/document_name"
+            android:text="@string/med_spravka_text" />
+
+        <CheckBox
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/size_30" />
+
+
+
+
+    </LinearLayout>
+</com.example.virus.infamily.mvp.ui.libs.shadow_view.ShadowView>
+

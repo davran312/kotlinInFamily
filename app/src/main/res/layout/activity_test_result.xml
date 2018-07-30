@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
         android:background="@drawable/dosya_rectangle"
         android:orientation="vertical"
         android:paddingEnd="20dp"
@@ -71,18 +70,20 @@
             android:id="@+id/result_text_view"
             android:layout_width="match_parent"
             android:layout_height="125dp"
-            android:textSize="@dimen/size_20"
             android:layout_marginBottom="@dimen/size_10"
             android:gravity="center"
             android:textColor="@color/colorBlack"
+            android:textSize="@dimen/size_20"
             tools:text="@string/bad_result" />
+
         <TextView
 
             android:id="@+id/btn_submit_result"
             style="@style/submitButton"
+            android:layout_marginBottom="@dimen/size_20"
             android:text="@string/result_submit_text"
-            android:textColor="@color/white"
-            android:layout_marginBottom="@dimen/size_20"/>
+            android:textColor="@color/white" />
+
     </LinearLayout>
 
 
