@@ -21,6 +21,8 @@ interface ForumService {
     @GET("people/")
     fun getSpecialistList():Call<List<SpecialistList>>
 
+    @GET("sections/{id}")
+    fun getMainMenuCategoryArticles(@Path("id" )id:Int): Call <List<Categories>>
     @GET("people/{id}")
     fun getSpecialistArticle(@Path("id") id:Int): Call<SpecialistArticle>
 }
