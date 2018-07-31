@@ -1,6 +1,7 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents
 
 import android.app.Activity
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -49,6 +50,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     private fun initAdapter() {
         adapter = DocumentAdapter(resources.getStringArray
         (com.example.virus.kotlininfamily.R.array.documents_list),map,this)
+        recyclerViewOfDocuments.addItemDecoration( DividerItemDecoration(this))
         recyclerViewOfDocuments.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         recyclerViewOfDocuments.adapter = adapter
     }
@@ -61,10 +63,6 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
             Toast.makeText(this,"Заполните недостающие поля",Toast.LENGTH_LONG).show()
         else
             presenter.sendApplication(map,this)
-
-
-
-
 
     }
 
