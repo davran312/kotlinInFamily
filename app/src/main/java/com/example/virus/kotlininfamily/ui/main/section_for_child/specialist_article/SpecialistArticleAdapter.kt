@@ -26,7 +26,7 @@ class SpecialistArticleAdapter(private var item:SpecialistArticle) : RecyclerVie
 
     inner class ViewHolder(itemView: View?): RecyclerView.ViewHolder(itemView){
         fun bind(position:Int){
-            itemView.toolbar.title = item.name
+            itemView.name.text = item.name
             itemView.tw_adress.text = item.address
             //Glide.with(itemView).load(item.photo).into(itemView.img_photo)
             itemView.tw_schedule.text = item.schedule

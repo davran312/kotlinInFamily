@@ -1,129 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/size_20"
-    android:padding="@dimen/size_8"
-    android:background="@color/text_info">
-
-
-    <ImageView
-        android:src="@drawable/person"
-        android:background="@drawable/ellipse"
-        android:layout_margin="@dimen/size_6"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="405dp"
+    android:orientation="vertical">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:title="Дмитрий Нагиев"
-        app:titleTextColor="@color/white" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_marginTop="@dimen/size_8"
-            android:layout_width="@dimen/size_50"
-            android:layout_height="@dimen/size_50"
-            android:src="@drawable/contact_phone"/>
-
-        <TextView
-            android:layout_marginLeft="@dimen/size_16"
-            android:layout_marginTop="20dp"
-            android:id="@+id/tw_contact_phone"
-            android:layout_width="wrap_content"
+        android:layout_height="@dimen/size_200">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0709739641"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_18"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:text="Wiliam Snoe"
+                android:textColor="@color/colorBlack"
+                android:textSize="21sp"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="@dimen/size_100"
+                android:layout_height="@dimen/size_100"
+                android:src="@drawable/personphot"/>
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_marginTop="@dimen/size_8"
-            android:layout_width="@dimen/size_50"
-            android:layout_height="@dimen/size_50"
-            android:src="@drawable/location"/>
 
-        <TextView
-            android:layout_marginLeft="@dimen/size_20"
-            android:layout_marginTop="20dp"
-            android:id="@+id/tw_adress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Советская Киевска ул 14 по  Ахунбаевава"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_16"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/size_50"
-            android:layout_height="@dimen/size_50"
-            android:layout_marginTop="@dimen/size_8"
-            android:src="@drawable/schedule" />
-
-        <TextView
-            android:id="@+id/tw_schedule"
+        <LinearLayout
+            android:padding="@dimen/size_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:text="@string/contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_20"
+                />
+            <TextView
+                android:id="@+id/tw_contact_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_15"
+                />
+
+            <TextView
+                android:layout_marginTop="@dimen/size_20"
+                android:text="@string/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_20"
+                />
+            <TextView
+                android:id="@+id/tw_adress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_15"
+                />
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_marginLeft="@dimen/size_20"
-            android:layout_marginTop="20dp"
-            android:text="Ежедневно в 15:45-16:35"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_15"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="@dimen/size_50"
-            android:layout_height="@dimen/size_50"
-            android:layout_marginTop="@dimen/size_8"
-            android:src="@drawable/description" />
-
-        <TextView
-            android:id="@+id/tw_descrption"
+            android:padding="@dimen/size_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_20"
-            android:layout_marginTop="20dp"
-            android:text="Ежедневно в 15:45-16:35"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_15"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            >
+            <TextView
+                android:text="@string/shedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_20"
+                />
+            <TextView
+                android:id="@+id/tw_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_15"
+                />
 
+            <TextView
+                android:layout_marginTop="@dimen/size_20"
+                android:text="@string/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="@dimen/size_20"
+                />
+            <TextView
+                android:id="@+id/tw_descrption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_15"
+                />
+        </LinearLayout>
 
     </LinearLayout>
-
-
 
 </LinearLayout>
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_margin="@dimen/size_20"-->
+    <!--android:padding="@dimen/size_8"-->
+    <!--android:background="@color/text_info">-->
+
+
+    <!--<ImageView-->
+        <!--android:src="@drawable/person"-->
+        <!--android:background="@drawable/ellipse"-->
+        <!--android:layout_margin="@dimen/size_6"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp" />-->
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--app:title="Дмитрий Нагиев"-->
+        <!--app:titleTextColor="@color/white" />-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+        <!--<ImageView-->
+            <!--android:layout_marginTop="@dimen/size_8"-->
+            <!--android:layout_width="@dimen/size_50"-->
+            <!--android:layout_height="@dimen/size_50"-->
+            <!--android:src="@drawable/contact_phone"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_marginLeft="@dimen/size_16"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:id="@+id/tw_contact_phone"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="0709739641"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/size_18"-->
+            <!--android:textStyle="bold" />-->
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<ImageView-->
+            <!--android:layout_marginTop="@dimen/size_8"-->
+            <!--android:layout_width="@dimen/size_50"-->
+            <!--android:layout_height="@dimen/size_50"-->
+            <!--android:src="@drawable/location"/>-->
+
+        <!--<TextView-->
+            <!--android:layout_marginLeft="@dimen/size_20"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:id="@+id/tw_adress"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Советская Киевска ул 14 по  Ахунбаевава"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/size_16"-->
+            <!--android:textStyle="bold" />-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/size_50"-->
+            <!--android:layout_height="@dimen/size_50"-->
+            <!--android:layout_marginTop="@dimen/size_8"-->
+            <!--android:src="@drawable/schedule" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tw_schedule"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/size_20"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="Ежедневно в 15:45-16:35"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/size_15"-->
+            <!--android:textStyle="bold" />-->
+
+
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/size_50"-->
+            <!--android:layout_height="@dimen/size_50"-->
+            <!--android:layout_marginTop="@dimen/size_8"-->
+            <!--android:src="@drawable/description" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tw_descrption"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/size_20"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="Ежедневно в 15:45-16:35"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/size_15"-->
+            <!--android:textStyle="bold" />-->
+
+
+    <!--</LinearLayout>-->
+
+
+
+<!--</LinearLayout>-->
 

@@ -33,15 +33,15 @@
 
         <TextView
             android:id="@+id/tw_article_text"
-            android:textColor="@color/colorBlack"
             android:textSize="@dimen/size_16"
-            android:paddingLeft="@dimen/size_12"
-            android:paddingTop="@dimen/size_20"
+            android:padding="@dimen/size_25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/img_article_image"
-            android:text="godd" />
+            android:text="godd"
+
+            />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
