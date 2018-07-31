@@ -5,9 +5,7 @@
     style="@style/ShadowRectangleFrameTextStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/side_margin_for_every_frame"
-    android:layout_marginStart="@dimen/side_margin_for_every_frame"
-    android:layout_marginTop="10dp"
+    android:layout_margin="8dp"
     android:background="@android:color/transparent"
     android:elevation="@dimen/size_10"
     card_view:cardElevation="@dimen/size_10"
@@ -46,7 +44,7 @@
             android:ellipsize="end"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            tools:text = "fefw fef f"
+            tools:text = "Не надо бояться merge conflict в гит, просто слушайтесь Дастана и все получится"
             android:textColor="@color/content_of_article_color"/>
 
     </LinearLayout>
