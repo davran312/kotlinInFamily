@@ -1,13 +1,11 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents
 
 import android.app.Activity
-import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.support.v4.app.FragmentManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Button
 import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
@@ -68,10 +66,12 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
     override fun onItemSelectedAt(index: Int, document: String) {
         this.selectedIndex = index
-        val intent = Intent(this,DocumentFillActivity::class.java)
+
+        showDialog()
+        /*val intent = Intent(this,DocumentFillActivity::class.java)
         if(map.containsKey(selectedIndex)) intent.putExtra(Const.INTENT_GET_IMAGE,map.get(selectedIndex))
         intent.putExtra(Const.INTENT_GET_DOCUMENT,document)
-        startActivityForResult(intent,1)
+        startActivityForResult(intent,1)*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -94,5 +94,23 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     override fun onBackPressed() {
         FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
         super.onBackPressed()
+    }
+
+    fun showDialog() {
+
+        // DialogFragment.show() will take care of adding the fragment
+        // in a transaction.  We also want to remove any currently showing
+        // dialog, so make our own transaction and take care of that here.
+        val ft = supportFragmentManager.beginTransaction()
+        val prev = supportFragmentManager.findFragmentByTag("dialog")
+
+        if (prev != null) {
+            ft.remove(prev)
+        }
+        ft.addToBackStack(null)
+
+        // Create and show the dialog.
+        val newFragment = MyDialogFragment.newInstance(0)
+        newFragment.show(ft, "dialog")
     }
 }

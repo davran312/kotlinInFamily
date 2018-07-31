@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:minWidth="1000dp"
+    android:minHeight="450dp">
+
+
+    <ImageView
+        android:id="@+id/dialog_text"
+        android:background="@color/colorLightBlue"
+        android:src="@drawable/white_default_photo64px"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/show"
+
+        style="@style/submitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:text="@string/result_submit_text" />
+
+</RelativeLayout>
