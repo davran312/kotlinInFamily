@@ -1,6 +1,7 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents
 
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
@@ -9,6 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.virus.kotlininfamily.R
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
+import android.util.DisplayMetrics
+import com.example.virus.kotlininfamily.R.layout.fragment_dialog
+import android.widget.LinearLayout
+
+
 
 
 /**
@@ -50,7 +56,7 @@ class MyDialogFragment : DialogFragment() {
         v.dialog_text.text = ("Dialog #" + mNum + ": using style "
                 + (mNum))
 
-        // Watch for button clicks.
+
         val button = v.findViewById(R.id.show) as Button
         button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
@@ -62,7 +68,13 @@ class MyDialogFragment : DialogFragment() {
         return v
     }
 
+    fun getScreenWidth(): Int {
+        return Resources.getSystem().getDisplayMetrics().widthPixels
+    }
 
+    fun getScreenHeight(): Int {
+        return Resources.getSystem().getDisplayMetrics().heightPixels
+    }
 
     companion object {
 
