@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/size_5"
     >
 
 
@@ -12,6 +13,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@android:color/white"
+                android:layout_marginTop="@dimen/size_2"
                 app:cardElevation="2dp">
 
                 <LinearLayout

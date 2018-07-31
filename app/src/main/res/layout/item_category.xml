@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:layout_marginTop="@dimen/size_5"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -19,9 +20,9 @@
         android:scaleType="centerCrop"
         android:src="@drawable/first_section"/>
     <TextView
-        android:shadowDy="3"
+        android:shadowDy="5"
         android:shadowDx="5"
-        android:shadowRadius="@dimen/size_6"
+        android:shadowRadius="6"
         android:shadowColor="@color/colorBlack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
