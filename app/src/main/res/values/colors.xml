@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorSilver">#bfbfbf</color>
 
     <color name="blackTransparent">#80000000</color>
     <color name="transparent_medium">#55000000</color>

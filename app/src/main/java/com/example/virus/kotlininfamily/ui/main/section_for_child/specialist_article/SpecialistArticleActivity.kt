@@ -1,7 +1,11 @@
 package com.example.virus.kotlininfamily.ui.main.section_for_child.specialist_article
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.widget.Toast
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.SpecialistArticle
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
@@ -31,7 +35,14 @@ class SpecialistArticleActivity :BaseActivity(),SpecialistArticleContract.View{
         initRecyclerView(result)
         item = result
     }
-
+    fun maps(view:View){
+            var uri=Uri.parse("geo:"+ long+","+ lat)
+            var intent=Intent(Intent.ACTION_VIEW,uri)
+            intent.setPackage("com.google.android.apps.maps")
+        if (long != null && lat!=null) {
+            startActivity(intent)
+        }
+    }
     private fun initRecyclerView(result: SpecialistArticle) {
         adapter = SpecialistArticleAdapter(result)
         recyclerViewForArticle.layoutManager = LinearLayoutManager(this)
