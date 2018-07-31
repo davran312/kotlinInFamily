@@ -5,8 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.virus.kotlininfamily.R
-import kotlinx.android.synthetic.main.simple_chekable_custom_list.view.*
+import kotlinx.android.synthetic.main.item_for_document_activity.view.*
 
 /**
  * Created by Alier on 20.07.2018.
@@ -17,7 +18,7 @@ class DocumentAdapter(private var list: Array<String>,
                       var listener: Listener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.simple_chekable_custom_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_for_document_activity, parent, false)
         return ViewHolder(view)
     }
 
@@ -29,14 +30,15 @@ class DocumentAdapter(private var list: Array<String>,
 
     inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         fun bind(position: Int) {
-            itemView.document_name.text = list.get(position)
+
+            itemView.document_name.text = list[position]
+
             if(map.containsKey(position)) {
-                itemView.setBackgroundColor(Color.parseColor("#82FF95"))
-                // Glide.with(itemView).load(R.drawable.checked).into(itemView.imageView)
+                Glide.with(itemView).load(R.drawable.green_tick32px).into(itemView.image_tick)
             }else {
-                // Glide.with(itemView).load(R.drawable.ic_documents).into(itemView.imageView)
-                itemView.setBackgroundColor(Color.WHITE)
+                Glide.with(itemView).load(R.drawable.grey_tick32px).into(itemView.image_tick)
             }
+
             itemView.tag = position
             itemView.setOnClickListener { v ->
                 val index = v.tag as Int

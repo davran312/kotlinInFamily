@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/spravka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginStart="@dimen/size_8"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ellipse" />
+
+        <TextView
+
+            style="@style/subtitlesInDocuments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/document_name"
+            android:text="@string/med_spravka_text" />
+
+        <ImageView
+            android:layout_marginStart="@dimen/size_5"
+            android:id="@+id/image_tick"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/size_8"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/grey_tick32px"
+          />
+    </LinearLayout>
+
+

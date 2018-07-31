@@ -14,12 +14,13 @@
         android:layout_height="match_parent"
         android:nestedScrollingEnabled="false"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/simple_chekable_custom_list" />
+        tools:listitem="@layout/item_for_document_activity" />
 
     <TextView
         android:id="@+id/button_send_request"
         style = "@style/submitButton"
         android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/size_10"
         android:text="Отправить Заявку"
         android:textColor="@color/white" />
 
