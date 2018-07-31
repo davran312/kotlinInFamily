@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <android.support.v7.widget.CardView id="@+id/main_layout"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size_150"
-    android:layout_margin="@dimen/size_4"
+    android:layout_height="@dimen/size_200"
+    app:cardCornerRadius="6dp"
+    android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
         android:id="@+id/imageView"
@@ -16,15 +18,23 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/first_section"/>
-    </android.support.v7.widget.CardView>
     <TextView
+        android:shadowDy="3"
+        android:shadowDx="5"
+        android:shadowRadius="6"
+        android:shadowColor="@color/colorBlack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/transparent_medium"
         android:gravity="center"
+        android:text="Хотите стать приемным родителем"
         android:id="@+id/titleView"
+        android:textSize="20dp"
+        android:fontFamily="@font/firenight_regular"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textStyle="bold"/>
+</android.support.v7.widget.CardView>
+
 
 </LinearLayout>
