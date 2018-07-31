@@ -9,14 +9,12 @@ import com.example.virus.kotlininfamily.ui.main.section_become_parent.BecomePare
 import com.example.virus.kotlininfamily.ui.main.section_for_child.ChildActivity
 import com.example.virus.kotlininfamily.ui.main.section_for_parent.ParentActivity
 import kotlinx.android.synthetic.main.activity_main_menu.*
-
 class MainMenuActivity : AppCompatActivity(), MainMenuAdapter.Listener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_header_menu)
-
-
+        supportActionBar?.title = "INFAMILY"
         val list = ArrayList<Category>()
         list.add(Category(getString(R.string.category1), R.drawable.first_section))
         list.add(Category(getString(R.string.category2), R.drawable.second_section))
@@ -25,7 +23,7 @@ class MainMenuActivity : AppCompatActivity(), MainMenuAdapter.Listener{
     }
     override fun onItemSelectedAt(position: Int) {
         startActivity(Intent(this,when(position){
-            0->BecomeParentActivity::class.java
+            0-> BecomeParentActivity::class.java
             1-> ChildActivity::class.java
             else -> ParentActivity::class.java
         }))
