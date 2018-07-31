@@ -1,4 +1,4 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_child.SpecialistNames
+package com.example.virus.kotlininfamily.ui.main.section_for_child.specialistNames
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

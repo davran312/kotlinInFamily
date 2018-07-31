@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nested_parentframe"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_light">
+
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewOfDocuments"
         android:layout_width="match_parent"
-        android:id="@+id/recyclerViewForDoc"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:paddingBottom="@dimen/size_8"
-        tools:listitem="@layout/simple_chekable_custom_list"
-        />
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/simple_chekable_custom_list" />
 
-    <Button
-        android:id="@+id/btn_sendApplication"
-        android:textColor="@color/white"
-        android:background="@color/blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/send_application" />
-</RelativeLayout>
+    <TextView
+        android:id="@+id/button_send_request"
+        style = "@style/submitButton"
+        android:layout_gravity="bottom|center"
+        android:text="Отправить Заявку"
+        android:textColor="@color/white" />
 
 
-
+</FrameLayout>

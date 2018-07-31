@@ -31,7 +31,7 @@
         </activity>
         <activity android:name=".ui.main.section_for_parent.ParentActivity"/>
         <activity android:name=".ui.main.section_for_child.specialist_article.SpecialistArticleActivity"/>
-        <activity android:name=".ui.main.section_for_child.SpecialistNames.SpecialistNamesActivity"/>
+        <activity android:name=".ui.main.section_for_child.specialistNames.SpecialistNamesActivity"/>
         <activity android:name=".ui.main.section_for_child.ChildActivity"/>
         <activity android:name=".ui.main.section_become_parent.section_test.TestResultActivity"/>
         <activity android:name="com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity"/>

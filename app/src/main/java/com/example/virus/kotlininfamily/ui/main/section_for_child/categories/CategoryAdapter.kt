@@ -7,24 +7,32 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
-import kotlinx.android.synthetic.main.item_category.view.*
+import kotlinx.android.synthetic.main.item_for_categories_activity.view.*
 
-class CategoriesAdapter(private var list: List<Categories>, var listener: Listener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CategoryAdapter(private var listOfCategories: List<Categories>, var listener: Listener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent:ViewGroup, viewType:Int): RecyclerView.ViewHolder{
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_for_categories_activity,parent,false)
         return ViewHolder(view)
     }
     override fun onBindViewHolder(holder:RecyclerView.ViewHolder,position:Int){
         (holder as? ViewHolder)?.bind(position)
     }
-    override fun getItemCount():Int = list.size
+    override fun getItemCount():Int = listOfCategories.size
 
     inner class ViewHolder(itemView: View?):RecyclerView.ViewHolder(itemView){
         fun bind(position:Int){
-            itemView.titleView.text = list.get(position).title
-            Glide.with(itemView).load(list.get(position).image).into(itemView.imageView)
+            itemView.article_title_text.text = listOfCategories.get(position).title
+            itemView.article_content.text = listOfCategories[position].content
+            Glide.with(itemView).load(listOfCategories.get(position).image).into(itemView.image_of_article)
+
+            if(listOfCategories[position].image == null){
+                itemView.image_of_article.layoutParams.height =  0
+                itemView.image_of_article.requestLayout()
+            }
+
             itemView.tag = position
+
             itemView.setOnClickListener{v->
                 val index = v.tag as Int
                 listener.onItemSelectedAt(index)

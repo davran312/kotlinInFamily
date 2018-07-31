@@ -3,11 +3,8 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child.specialist_ar
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.virus.kotlininfamily.R
-import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.models.SpecialistArticle
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
-import com.example.virus.kotlininfamily.ui.main.section_for_child.categories.CategoriesAdapter
-import com.example.virus.kotlininfamily.ui.main.section_for_child.categoriesArticle.ArticleAdapter
 import com.example.virus.kotlininfamily.utils.Const
 import kotlinx.android.synthetic.main.activity_article.*
 

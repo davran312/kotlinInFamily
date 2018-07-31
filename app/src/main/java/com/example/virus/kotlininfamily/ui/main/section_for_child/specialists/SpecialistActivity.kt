@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.SpecialistList
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
-import com.example.virus.kotlininfamily.ui.main.section_for_child.SpecialistNames.SpecialistNamesActivity
+import com.example.virus.kotlininfamily.ui.main.section_for_child.specialistNames.SpecialistNamesActivity
 import com.example.virus.kotlininfamily.utils.Const
 import kotlinx.android.synthetic.main.activity_main_menu.*
 

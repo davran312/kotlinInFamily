@@ -1,9 +1,8 @@
-package com.example.virus.kotlininfamily.ui.main.section_for_child.SpecialistNames
+package com.example.virus.kotlininfamily.ui.main.section_for_child.specialistNames
 
 import android.content.Intent
 import android.os.Bundle
 import com.example.virus.kotlininfamily.R
-import com.example.virus.kotlininfamily.models.SpecialistArticle
 import com.example.virus.kotlininfamily.models.SpecialistList
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.ui.main.section_for_child.specialist_article.SpecialistArticleActivity

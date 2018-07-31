@@ -8,18 +8,19 @@ import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.ui.main.section_for_child.categoriesArticle.ArticleActivity
 import com.example.virus.kotlininfamily.utils.Const
+import kotlinx.android.synthetic.main.activity_categories.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
 
-class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoriesAdapter.Listener{
+class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapter.Listener{
 
 
-    private lateinit var adapter: CategoriesAdapter
+    private lateinit var adapter: CategoryAdapter
     private lateinit var presenter: CategoryPresenter
     private lateinit var list:List<Categories>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_menu)
+        setContentView(R.layout.activity_categories)
         setActionBarTitle()
         init()
     }
@@ -40,9 +41,9 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoriesAdap
         presenter.getCategoriesById(intent.getIntExtra(Const.EXTRA_CATEGORY,1))
     }
     private fun initRecyclerView(result: List<Categories>) {
-        adapter = CategoriesAdapter(result,this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        adapter = CategoryAdapter(result,this)
+        categoryRecyclerView.layoutManager = LinearLayoutManager(this)
+        categoryRecyclerView.adapter = adapter
     }
 
     override fun onSuccess(result: List<Categories>) {
