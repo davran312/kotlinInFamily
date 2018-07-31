@@ -23,6 +23,7 @@ var CATEGORY_ID=4
 class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
     lateinit var list: List<Categories>
     lateinit var presenter: ChildPresenter
+    lateinit var adapter :ChildAdapter
 
 
 
@@ -37,13 +38,13 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
 
 
     override fun onSuccess(result: List<Categories>) {
-        initRecyclerView()
         list = result
+        initRecyclerView(result)
     }
 
-    private fun initRecyclerView() {
-        recyclerView.adapter = ChildAdapter(list, this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+    private fun initRecyclerView(result: List<Categories>) {
+        adapter = ChildAdapter(result,this)
+        recyclerView.adapter = adapter
 
     }
 

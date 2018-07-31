@@ -14,9 +14,10 @@ import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_main_menu.*
 
-class BecomeParentActivity: BaseActivity(),ChildAdapter.Listener,ChildContract.View {
+class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildContract.View {
     lateinit var list: List<Categories>
     lateinit var presenter: ChildPresenter
+    lateinit var adapter : BecomeParentAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -25,14 +26,14 @@ class BecomeParentActivity: BaseActivity(),ChildAdapter.Listener,ChildContract.V
     }
 
     override fun onSuccess(result: List<Categories>) {
-        initRecyclerView()
+        initRecyclerView(result)
         list = result
+
     }
 
-    private fun initRecyclerView() {
-        recyclerView.adapter = ChildAdapter(list, this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
+    private fun initRecyclerView(result:List<Categories>) {
+        adapter = BecomeParentAdapter(result,this)
+        recyclerView.adapter = adapter
     }
 
     fun init() {

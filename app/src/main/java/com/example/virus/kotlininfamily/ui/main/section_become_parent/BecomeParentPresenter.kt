@@ -22,7 +22,7 @@ class BecomeParentPresenter(val view:ChildContract.View) :ChildContract.Presente
 
                 override fun onResponse(call: Call<List<Categories>>?, response: Response<List<Categories>>?) {
                     if(isViewAttached()){
-                        if(!response!!.isSuccessful && response.body()!!.isNotEmpty()){
+                        if(response!!.isSuccessful && response.body() != null){
                             view!!.onSuccess(response.body()!!)
                         }
                         else

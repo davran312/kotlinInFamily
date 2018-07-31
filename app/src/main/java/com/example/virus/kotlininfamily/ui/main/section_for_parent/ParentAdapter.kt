@@ -9,7 +9,7 @@ import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
 import kotlinx.android.synthetic.main.item_category.view.*
 
-    class ParentAdapter(private var list: List<Categories>, var listener: Listener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class  ParentAdapter(private var list: List<Categories>, var listener: Listener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType:Int): RecyclerView.ViewHolder{
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category,parent,false)

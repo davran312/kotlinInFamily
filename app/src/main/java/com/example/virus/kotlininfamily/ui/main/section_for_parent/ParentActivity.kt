@@ -15,6 +15,7 @@ class ParentActivity :BaseActivity(), ParentAdapter.Listener,ParentContract.View
     var CATEGORY_ID=4
     lateinit var list: List<Categories>
     lateinit var presenter: ParentPresenter
+    lateinit var adapter:ParentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,13 +25,13 @@ class ParentActivity :BaseActivity(), ParentAdapter.Listener,ParentContract.View
 
 
     override fun onSuccess(result: List<Categories>) {
-        initRecyclerView()
         list = result
+        initRecyclerView(list)
     }
 
-    private fun initRecyclerView() {
-        recyclerView.adapter = ParentAdapter(list,this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+    private fun initRecyclerView(result: List<Categories>) {
+        adapter = ParentAdapter(result,this)
+        recyclerView.adapter = adapter
 
     }
 

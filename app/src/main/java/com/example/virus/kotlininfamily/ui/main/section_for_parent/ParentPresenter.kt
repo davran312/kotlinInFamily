@@ -11,7 +11,7 @@ class ParentPresenter(val view:ParentContract.View) :ParentContract.Presenter{
     override fun getMainMenuCategoryArticles(id: Int) {
         if(isViewAttached()){
             view?.showProgress()
-            StartApplication.service.getMainMenuCategoryArticles(3).enqueue(object :Callback<List<Categories>>{
+            StartApplication.service.getMainMenuCategoryArticles(id).enqueue(object :Callback<List<Categories>>{
                 override fun onFailure(call: Call<List<Categories>>?, t: Throwable?) {
                     if(isViewAttached()){
                         view!!.onError("Error")
@@ -22,7 +22,7 @@ class ParentPresenter(val view:ParentContract.View) :ParentContract.Presenter{
 
                 override fun onResponse(call: Call<List<Categories>>?, response: Response<List<Categories>>?) {
                     if(isViewAttached()){
-                        if(!response!!.isSuccessful && response.body()!!.isNotEmpty()){
+                        if((response!!.isSuccessful || response.body() != null)){
                             view!!.onSuccess(response.body()!!)
                         }
                         else
