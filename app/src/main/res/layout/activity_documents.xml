@@ -20,7 +20,7 @@
         android:id="@+id/button_send_request"
         style = "@style/submitButton"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="@dimen/size_10"
+        android:layout_marginBottom="@dimen/size_20"
         android:text="Отправить Заявку"
         android:textColor="@color/white" />
 
