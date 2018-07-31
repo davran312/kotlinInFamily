@@ -51,6 +51,7 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapte
         list = result
 
 
+
     }
     override fun onItemSelectedAt(position: Int) {
 
