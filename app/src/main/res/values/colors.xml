@@ -17,7 +17,7 @@
     <!--Dosya values-->
     <color name="text_info">#585858</color>
     <color name="red">#ff0000</color>
-
+    <color name="content_of_article_color">#6c6c6c</color>
     <color name="colorBlack">#212121</color>
     <color name="blue">#6ED3FF</color>
     <color name="hint_color">#b8b8b8</color>
