@@ -42,7 +42,7 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildCon
     }
 
     override fun onItemSelectedAt(position: Int) {
-        if(userInfoIsEmpty()){
+        if( position == 1 && userInfoIsEmpty()){
             startActivity(Intent(this,LoginActivity::class.java))
         }
         else{

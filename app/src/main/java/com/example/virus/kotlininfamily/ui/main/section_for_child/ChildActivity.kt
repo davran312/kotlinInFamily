@@ -22,7 +22,7 @@ val CATEGORY_TITL="ca"
 var CATEGORY_ID=4
 
 class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
-    lateinit var list: List<Categories>
+     var list: ArrayList<Categories> = ArrayList()
     lateinit var presenter: ChildPresenter
     lateinit var adapter :ChildAdapter
 
@@ -39,11 +39,12 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
 
 
     override fun onSuccess(result: List<Categories>) {
-        list = result
+        list = result as ArrayList<Categories>
+        list.add(Categories(0,"Cписок специалистов","",""))
         initRecyclerView(result)
     }
 
-    private fun initRecyclerView(result: List<Categories>) {
+    private fun initRecyclerView(result: ArrayList<Categories>) {
         adapter = ChildAdapter(result,this)
         recyclerView.adapter = adapter
 
@@ -55,7 +56,7 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
     }
 
     override fun onItemSelectedAt(position: Int) {
-        if(position == 4){
+        if(position == list.size-1){
                 val intent = Intent(this, SpecialistActivity::class.java)
                 startActivity(intent)
             }
