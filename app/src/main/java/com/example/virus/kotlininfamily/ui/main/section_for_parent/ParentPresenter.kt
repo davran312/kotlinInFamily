@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BecomeParentPresenter(val view:ChildContract.View) :ChildContract.Presenter{
+class ParentPresenter(val view:ParentContract.View) :ParentContract.Presenter{
 
     override fun getMainMenuCategoryArticles(id: Int) {
         if(isViewAttached()){
