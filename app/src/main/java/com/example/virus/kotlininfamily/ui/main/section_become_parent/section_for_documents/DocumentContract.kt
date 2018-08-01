@@ -6,10 +6,11 @@ import com.example.virus.kotlininfamily.utils.IResult
 import okhttp3.ResponseBody
 
 interface DocumentContract {
-    interface View:IProgressBar ,IResult<ResponseBody>{}
+    interface View:IProgressBar ,IResult<ResponseBody>
 
     interface Presenter{
         fun sendApplication(map:HashMap<Int,String>,context: Context)
+
 
     }
 }

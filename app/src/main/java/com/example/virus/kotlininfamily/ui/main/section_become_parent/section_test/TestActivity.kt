@@ -22,6 +22,7 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
             if(adapter.map.size == 15) {
                 val intent = Intent(this, TestResultActivity::class.java)
                 intent.putExtra("map", adapter.map)
+                finish()
                 startActivity(intent)
             }else{
                 Toast.makeText(this,"Вы ответили не на все вопросы",Toast.LENGTH_LONG).show()

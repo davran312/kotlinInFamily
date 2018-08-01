@@ -9,11 +9,16 @@ import android.util.Log
 import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
+import com.example.virus.kotlininfamily.StartApplication
+import com.example.virus.kotlininfamily.models.DocumentStatus
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_documents.*
 import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentContract.View {
 
@@ -45,7 +50,21 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         button_send_request.setOnClickListener {
             sendApplication()
         }
+        get_status.setOnClickListener {
+            StartApplication.service.updateDocumentStatus(2).enqueue(object : Callback<DocumentStatus> {
+                override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
+                    Log.d("_________",response!!.body()!!.family_correct.toString())
+                }
+
+                override fun onFailure(call: Call<DocumentStatus>?, t: Throwable?) {
+
+                }
+            })
+        }
+
     }
+
+
 
     private fun initVariables() {
         presenter = DocumentPresenter(this)

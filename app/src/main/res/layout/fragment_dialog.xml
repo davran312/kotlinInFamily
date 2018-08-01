@@ -47,4 +47,5 @@
         android:layout_marginTop="38dp"
         android:text="@string/result_submit_text" />
 
+
 </RelativeLayout>

@@ -1,15 +1,13 @@
 package com.example.virus.kotlininfamily.data
 
 import com.example.virus.kotlininfamily.models.Categories
+import com.example.virus.kotlininfamily.models.DocumentStatus
 import com.example.virus.kotlininfamily.models.SpecialistArticle
 import com.example.virus.kotlininfamily.models.SpecialistList
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ForumService {
     @GET("categories/{id}")
@@ -25,4 +23,6 @@ interface ForumService {
     fun getMainMenuCategoryArticles(@Path("id" )id:Int): Call <List<Categories>>
     @GET("people/{id}")
     fun getSpecialistArticle(@Path("id") id:Int): Call<SpecialistArticle>
+    @PATCH("document/{id}")
+    fun updateDocumentStatus(@Path("id") id:Int): Call<DocumentStatus>
 }

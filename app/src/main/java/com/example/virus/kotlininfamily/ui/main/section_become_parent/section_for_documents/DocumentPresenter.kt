@@ -26,7 +26,7 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
         bodyBuilder.setType(MultipartBody.FORM)
         if(isViewAttached()) {
             view?.showProgress()
-            StartApplication.service.sendApplication(bodyBuilder.build()).
+                    StartApplication.service.sendApplication(bodyBuilder.build()).
                     enqueue(object: Callback<ResponseBody>{
                         override fun onResponse(call: Call<ResponseBody>?, response: Response<ResponseBody>?) {
                             if(isViewAttached()){

@@ -89,7 +89,9 @@ class TestResultActivity : BaseActivity() {
         btn_submit_result.setOnClickListener {
 
             val intent = Intent(this, BecomeParentActivity::class.java)
+            finish()
             startActivity(intent)
+
 
         }
 

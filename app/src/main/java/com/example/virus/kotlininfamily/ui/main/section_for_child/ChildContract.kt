@@ -10,6 +10,7 @@ interface ChildContract {
     interface View: IProgressBar, IResult<List<Categories>>
     interface Presenter{
         fun getMainMenuCategoryArticles(id:Int)
+
     }
 
 

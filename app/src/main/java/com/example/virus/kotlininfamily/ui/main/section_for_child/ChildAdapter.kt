@@ -26,13 +26,13 @@ import kotlinx.android.synthetic.main.item_category.view.*
                if(list.get(position).image == ""+R.drawable.expert)
                    itemView.imageView.setImageResource(R.drawable.expert)
                 else{
-                Glide.with(itemView).load(list.get(position).image).into(itemView.imageView)
+                Glide.with(itemView).load(list.get(position).image).into(itemView.imageView)}
                 itemView.tag = position
                 itemView.setOnClickListener{v->
                     val index = v.tag as Int
                     listener.onItemSelectedAt(index)
                 }
-               }
+
             }}
         interface Listener{
             fun onItemSelectedAt(position:Int)
