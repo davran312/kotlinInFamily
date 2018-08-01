@@ -36,7 +36,8 @@
                     android:layout_height="@dimen/size_40"
                     android:layout_gravity="center_vertical"
                     android:clickable="true"
-                    android:src="@drawable/ic_black_bubble_speech"
+                    android:onClick="maps"
+                    android:src="@drawable/ic_facebook_placeholder_for_locate_places_on_maps"
                     />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/size_100"
@@ -96,19 +97,27 @@
 
         </LinearLayout>
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/size_40"
+        android:layout_marginRight="@dimen/size_20"
         >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+
                 <TextView
+
+                    android:layout_marginTop="@dimen/size_20"
                     android:text="@string/contacts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,33 +125,39 @@
                     android:textStyle="bold"
                     android:textSize="@dimen/size_20"
                     />
+                <TextView
+                    android:id="@+id/tw_contact_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_15"
+                    />
 
+        <TextView
 
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tw_contact_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_15"
-                />
-
-        <LinearLayout
+            android:layout_marginTop="@dimen/size_20"
+            android:text="@string/e_mail_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="@dimen/size_20"
+            />
+        <TextView
+            android:id="@+id/tw_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/e_mail_text"
+            android:textSize="@dimen/size_15"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginLeft="@dimen/size_20"
             >
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:clickable="true"
-                android:onClick="maps"
-                >
-
                 <TextView
                     android:layout_marginTop="@dimen/size_20"
                     android:text="@string/address"
@@ -153,20 +168,17 @@
                     android:textSize="@dimen/size_20"
                     />
 
+                <TextView
+                    android:id="@+id/tw_adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_15"
 
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tw_adress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/size_15"
-                />
-        </LinearLayout>
-
+                    />
 
         </LinearLayout>
+    </LinearLayout>
+
 
 
 

@@ -27,7 +27,7 @@ import com.example.virus.kotlininfamily.R.id.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class UiTest {
+class FirstCategoryTest {
     @get:Rule
     val mainRule = ActivityTestRule(
             MainMenuActivity::class.java)
@@ -44,21 +44,29 @@ class UiTest {
         onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         Thread.sleep(2000)
         onView(isRoot()).perform(pressBack())
-        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
-        for (i in 0..2) {
-            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
             Thread.sleep(1000)
-            onView(isRoot()).perform(pressBack())
-        }
-        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-        for (i in 0..2) {
-            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-            Thread.sleep(1000)
-            onView(isRoot()).perform(pressBack())
-        }
+            onView(withId(mViewPager)).perform(swipeLeft())
 
+        Thread.sleep(300)
+            onView(withId(mViewPager)).perform(swipeLeft())
+
+        Thread.sleep(300)
+            onView(withId(mViewPager)).perform(swipeRight())
+
+        Thread.sleep(300)
+            onView(withId(mViewPager)).perform(swipeRight())
+
+        Thread.sleep(300)
+            onView(isRoot()).perform(pressBack())
+
+
+            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        Thread.sleep(400)
+
+        onView(isRoot()).perform(pressBack())
 
         onView(withId(recyclerView)).perform(swipeUp())
     }
 }
-

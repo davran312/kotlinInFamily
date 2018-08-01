@@ -32,6 +32,7 @@
             android:layout_marginRight="@dimen/margin_in_rectangle"
             android:layout_marginTop="12dp"
             android:textColor="@color/colorBlack"
+            android:fontFamily="@font/times_new_roman"
             android:textSize="@dimen/big_text_size"
             tools:text="Часто задаваемые вопросы" />
         <TextView
@@ -45,7 +46,8 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             tools:text = "Не надо бояться merge conflict в гит, просто слушайтесь Дастана и все получится"
-            android:textColor="@color/content_of_article_color"/>
+            android:textColor="@color/colorArticle"
+            android:fontFamily="@font/times_new_roman"/>
 
     </LinearLayout>
 

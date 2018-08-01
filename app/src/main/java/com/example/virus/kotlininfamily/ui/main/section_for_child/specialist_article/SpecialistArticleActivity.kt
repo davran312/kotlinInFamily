@@ -36,7 +36,7 @@ class SpecialistArticleActivity :BaseActivity(),SpecialistArticleContract.View{
         item = result
     }
     fun maps(view:View){
-            var uri=Uri.parse("geo:"+ long+","+ lat)
+            var uri=Uri.parse("geo:<"+ lat+">,<"+ long+">?q=<"+ lat+">,<"+ long+">("+ labelLocation+")0")
             var intent=Intent(Intent.ACTION_VIEW,uri)
             intent.setPackage("com.google.android.apps.maps")
         if (long != null && lat!=null) {
