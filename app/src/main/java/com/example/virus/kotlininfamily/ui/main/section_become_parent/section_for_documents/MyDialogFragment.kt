@@ -12,6 +12,7 @@ import android.support.v4.app.DialogFragment
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,10 +53,12 @@ class MyDialogFragment : DialogFragment() {
 
         v.submit_photo.setOnClickListener{
             if(!TextUtils.isEmpty(imagePath)){
+                Log.d("Quantity: ", imagePath)
+                val callingActivity = activity as DocumentsActivity?
+                callingActivity!!.onGetData(imagePath!!)
+                dialog.dismiss()
 
 
-                activity!!.setResult(Activity.RESULT_OK, Intent().putExtra("path", imagePath))
-                activity!!.finish()
             }else {
                 FileLog.showError(v.context, "Nothing to save")
             }

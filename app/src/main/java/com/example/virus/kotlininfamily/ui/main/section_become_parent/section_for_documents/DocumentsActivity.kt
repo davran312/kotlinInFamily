@@ -76,8 +76,21 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != RESULT_CANCELED && resultCode == RESULT_OK && requestCode == 1 && data != null) {
+            val imagePath = data.getStringExtra("path")
+            if (selectedIndex != -1 && !map.containsKey(selectedIndex)) map.put(selectedIndex, imagePath)
+            else if (map.containsKey(selectedIndex)) map[selectedIndex] = imagePath
+            adapter?.setFilledIndex(selectedIndex, imagePath)
+        }
 
+    }
 
+    fun onGetData(imagePath : String){
+        if (imagePath != null) {
+            if (selectedIndex != -1 && !map.containsKey(selectedIndex)) map.put(selectedIndex, imagePath)
+            else if (map.containsKey(selectedIndex)) map[selectedIndex] = imagePath
+            adapter?.setFilledIndex(selectedIndex, imagePath)
+        }
     }
 
     override fun onSuccess(result: ResponseBody) {
