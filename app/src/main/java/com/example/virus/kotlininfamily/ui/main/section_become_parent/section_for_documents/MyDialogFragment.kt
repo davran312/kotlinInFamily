@@ -53,8 +53,8 @@ class MyDialogFragment : DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_dialog, container)
-        v.dialog_text.text = ("Dialog #" + mNum + ": using style "
-                + (mNum))
+//        v.dialog_text.text = ("Dialog #" + mNum + ": using style "
+//                + (mNum))
 
 
         val button = v.findViewById(R.id.show) as Button
