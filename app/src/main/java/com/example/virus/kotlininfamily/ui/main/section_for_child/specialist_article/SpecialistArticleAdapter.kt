@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.specialist_article.view.*
 
 lateinit var long:String
 lateinit var lat:String
-
+lateinit var labelLocation:String
 class SpecialistArticleAdapter(private var item:SpecialistArticle) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.specialist_article,parent,false)
@@ -36,7 +36,7 @@ class SpecialistArticleAdapter(private var item:SpecialistArticle) : RecyclerVie
             itemView.tw_schedule.text = item.schedule
             itemView.tw_descrption.text = item.description
             itemView.tw_contact_phone.text = item.contactList?.get(2)?.value
-
+            labelLocation=item.address.toString()
             long=item.longitude.toString()
             lat=item.latitude.toString()
         }

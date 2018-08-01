@@ -23,67 +23,7 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
-
-
-
-//    @Test
-//    fun orientationTest() {
-//        onView(withId(R.id.recyclerView)).perform(swipeRight())
-//        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-//        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-//    }
-//
-//    @Test
-//    fun clickTest() {
-//        onView(withId( R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-//        Thread.sleep(2000)
-//        onView(isRoot()).perform(pressBack())
-//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
-//        for (i in 0..2) {
-//            onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-//            Thread.sleep(1000)
-//            onView(isRoot()).perform(pressBack())
-//        }
-//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-//        for (i in 0..2) {
-//            onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-//            Thread.sleep(1000)
-//            onView(isRoot()).perform(pressBack())
-//        }
-//
-//
-//        onView(withId(R.id.recyclerView)).perform(swipeUp())
-//    }
-//
-//    @Test
-//    fun becomeParentActivityTest() {
-//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-//        Thread.sleep(2000)
-//        onView(withId(mViewPager)).perform(swipeLeft())
-//        onView(withId(mViewPager)).perform(swipeUp())
-//        onView(withId(mViewPager)).perform(swipeDown())
-//        Thread.sleep(1000)
-//        onView(withId(mViewPager)).perform(swipeRight())
-//        onView(withId(mViewPager)).perform(swipeUp())
-//        onView(withId(mViewPager)).perform(swipeDown())
-//        Thread.sleep(1000)
-//        onView(withId(mViewPager)).perform(swipeLeft())
-//        onView(withId(mViewPager)).perform(swipeUp())
-//        onView(withId(mViewPager)).perform(swipeDown())
-//        Thread.sleep(1000)
-//        onView(withId(mViewPager)).perform(swipeLeft())
-//        onView(withId(mViewPager)).perform(swipeUp())
-//        onView(withId(mViewPager)).perform(swipeDown())
-//        Thread.sleep(1000)
-//        onView(withId(mViewPager)).perform(swipeRight())
-//        onView(withId(mViewPager)).perform(swipeUp())
-//        onView(withId(mViewPager)).perform(swipeDown())
-//        onView(isRoot()).perform(pressBack())
-//    }
-
-
-
+class UiTest {
     @get:Rule
     val mainRule = ActivityTestRule(
             MainMenuActivity::class.java)
@@ -96,15 +36,39 @@ class ExampleInstrumentedTest {
         onView(withId(R.id.recyclerView)).check(matches(isDisplayed()))
         for(i in 0  until 3) {
 
+    fun orientationTest() {
+        onView(withId(R.id.recyclerView)).perform(swipeRight())
+        mainRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+        mainRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+    }
+
+    @Test
+    fun clickTest() {
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        Thread.sleep(2000)
+        onView(isRoot()).perform(pressBack())
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        for (i in 0..2) {
             onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
             onView(withId(R.id.categoryRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
             onView(withId(R.id.tw_article_title)).check(matches(isDisplayed()))
             onView(withId(R.id.tw_article_text)).check(matches(isDisplayed()))
             onView(isRoot()).perform(pressBack())
+        }
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        for (i in 0..2) {
+            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+            Thread.sleep(1000)
             onView(isRoot()).perform(pressBack())
 
         }
 
     }
 
+        }
+
+
+        onView(withId(recyclerView)).perform(swipeUp())
+    }
 }
+
