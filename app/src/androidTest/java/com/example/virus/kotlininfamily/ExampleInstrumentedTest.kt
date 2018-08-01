@@ -44,6 +44,7 @@ class UiTest {
 
     @Test
     fun clickTest() {
+        onView(isRoot()).perform(pressBack())
         onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         Thread.sleep(2000)
         onView(isRoot()).perform(pressBack())
