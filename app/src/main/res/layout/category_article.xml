@@ -16,6 +16,7 @@
             android:layout_height="@dimen/size_200"
             android:layout_centerHorizontal="true"
             android:src="@drawable/faq"
+            android:scaleType="centerCrop"
             android:contentDescription="TODO" />
         <TextView
             android:id="@+id/tw_article_title"

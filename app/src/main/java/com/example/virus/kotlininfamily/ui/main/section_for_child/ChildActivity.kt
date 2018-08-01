@@ -40,7 +40,7 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
 
     override fun onSuccess(result: List<Categories>) {
         list = result as ArrayList<Categories>
-        list.add(Categories(0,"Cписок специалистов","",""))
+        list.add(Categories(0,"Cписок специалистов","",""+R.drawable.expert))
         initRecyclerView(result)
     }
 

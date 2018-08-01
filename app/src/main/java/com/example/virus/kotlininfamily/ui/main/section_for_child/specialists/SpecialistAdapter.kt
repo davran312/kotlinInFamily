@@ -12,7 +12,7 @@ class SpecialistAdapter (private var list: List<SpecialistList>, var listener: L
                          var imageList:ArrayList<Int>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent:ViewGroup, viewType:Int): RecyclerView.ViewHolder{
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_specialist,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category,parent,false)
         return ViewHolder(view)
     }
     override fun onBindViewHolder(holder:RecyclerView.ViewHolder,position:Int){

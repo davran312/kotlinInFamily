@@ -16,9 +16,9 @@ class MainMenuActivity : AppCompatActivity(), MainMenuAdapter.Listener{
         setContentView(R.layout.activity_header_menu)
         supportActionBar?.title = "INFAMILY"
         val list = ArrayList<Category>()
-        list.add(Category(getString(R.string.category1), R.drawable.first_section))
-        list.add(Category(getString(R.string.category2), R.drawable.second_section))
-        list.add(Category(getString(R.string.category3), R.drawable.third_section))
+        list.add(Category(getString(R.string.category1), R.drawable.first))
+        list.add(Category(getString(R.string.category2), R.drawable.second))
+        list.add(Category(getString(R.string.category3), R.drawable.third))
         recyclerView.adapter = MainMenuAdapter(list,this)
     }
     override fun onItemSelectedAt(position: Int) {

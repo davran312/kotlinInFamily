@@ -19,6 +19,7 @@ import java.util.*
 import android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import android.support.test.espresso.matcher.ViewMatchers.isRoot
+import android.view.View
 import com.example.virus.kotlininfamily.R.id.*
 
 /**
@@ -27,7 +28,7 @@ import com.example.virus.kotlininfamily.R.id.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class FirstCategoryTest {
+class Test {
     @get:Rule
     val mainRule = ActivityTestRule(
             MainMenuActivity::class.java)
@@ -40,7 +41,7 @@ class FirstCategoryTest {
     }
 
     @Test
-    fun clickTest() {
+    fun clickTestForFirstCategory() {
         onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         Thread.sleep(2000)
         onView(isRoot()).perform(pressBack())
@@ -65,8 +66,41 @@ class FirstCategoryTest {
             onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
         Thread.sleep(400)
 
+        onView(withId(edit_name)).perform(typeText("infamily"))
+        onView(withId(edit_mail)).perform(typeText("infamily@gmail.com"))
+        onView(withId(edit_phone)).perform(typeText("0777777777"))
         onView(isRoot()).perform(pressBack())
+        onView(withId(btn_auth)).perform(click())
 
-        onView(withId(recyclerView)).perform(swipeUp())
+
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        Thread.sleep(300)
+        onView(withId(btn_yes)).perform(click())
+        onView(withId(btn_result)).perform(click())
+        onView(isRoot()).perform(pressBack())
     }
+    @Test
+    fun clickTestForSecondCategory(){
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        Thread.sleep(1000)
+        onView(isRoot()).perform(pressBack())
+        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+        for (i in 0 until 4) {
+            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+            Thread.sleep(1000)
+            onView(withId(categoryRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+            Thread.sleep(300)
+            onView(isRoot()).perform(pressBack())
+            onView(isRoot()).perform(pressBack())
+                Thread.sleep(1000)
+        }
+        onView(withId(recyclerView)).perform(swipeUp())
+
+
+
+
+
+
+    }
+
 }

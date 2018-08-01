@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.virus.kotlininfamily">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.main.MainMenuActivity"
             android:theme="@style/CustomTheme.NoActionBar">
@@ -44,6 +46,17 @@
         <activity android:name=".ui.main.section_become_parent.section_test.TestActivity"/>
         <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ruta_fileprovider" />
+        </provider>
+
     </application>
 
 </manifest>

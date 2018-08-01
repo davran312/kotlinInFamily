@@ -31,6 +31,7 @@
                 android:layout_gravity="center"
                 >
                 <ImageView
+                    android:id="@+id/specialistLocation"
                     android:layout_marginRight="@dimen/size_10"
                     android:layout_width="@dimen/size_40"
                     android:layout_height="@dimen/size_40"
