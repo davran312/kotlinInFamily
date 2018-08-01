@@ -3,9 +3,9 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_f
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.FragmentManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
@@ -18,10 +18,13 @@ import okhttp3.ResponseBody
 class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContract.View {
 
 
+
     private var adapter: DocumentAdapter? = null
     var map: HashMap<Int, String> = HashMap()
     private var selectedIndex: Int = -1
     private lateinit var presenter: DocumentPresenter
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
 
     }
+
 
     private fun initVariables() {
         presenter = DocumentPresenter(this)
@@ -68,23 +72,12 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         this.selectedIndex = index
 
         showDialog()
-        /*val intent = Intent(this,DocumentFillActivity::class.java)
-        if(map.containsKey(selectedIndex)) intent.putExtra(Const.INTENT_GET_IMAGE,map.get(selectedIndex))
-        intent.putExtra(Const.INTENT_GET_DOCUMENT,document)
-        startActivityForResult(intent,1)*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK
-         && requestCode == 1 && data != null){
-            val imagePath = data.getStringExtra(Const.INTENT_URI_PATH)
-            if(selectedIndex != -1 && !map.containsKey(selectedIndex))
-                map.put(selectedIndex,imagePath)
-            else if (map.containsKey(selectedIndex))
-                map[selectedIndex] = imagePath
-            adapter?.setFilledIndex(selectedIndex,imagePath)
-        }
+
+
     }
 
     override fun onSuccess(result: ResponseBody) {
@@ -95,6 +88,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
         super.onBackPressed()
     }
+
+
 
     fun showDialog() {
 
@@ -109,8 +104,10 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         }
         ft.addToBackStack(null)
 
-        // Create and show the dialog.
-        val newFragment = MyDialogFragment.newInstance(0)
-        newFragment.show(ft, "dialog")
+
+        val newFragment = MyDialogFragment.newInstance("j", map[selectedIndex])
+
+        newFragment!!.show(ft, "dialog")
+
     }
 }

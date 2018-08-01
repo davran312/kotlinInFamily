@@ -24,20 +24,20 @@ import android.support.test.espresso.matcher.ViewMatchers.isRoot
 import com.example.virus.kotlininfamily.R.id.*
 import com.example.virus.kotlininfamily.ui.main.section_become_parent.section_test.TestActivity
 
-@RunWith(AndroidJUnit4::class)
-class TestTesting {
-    @get:Rule
-    val mainRule = ActivityTestRule(
-            TestActivity::class.java)
-    @Test
-    fun runTest(){
-        onView(withId(R.id.btn_result)).perform(ViewActions.click())
-        Thread.sleep(2000)
-        for (i in 0..14){
-        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-       }
-        onView(withId(R.id.btn_result)).perform(ViewActions.click())
-
-
-    }
-}
+//@RunWith(AndroidJUnit4::class)
+//class TestTesting {
+//    @get:Rule
+//    val mainRule = ActivityTestRule(
+//            TestActivity::class.java)
+//    @Test
+//    fun runTest(){
+//        onView(withId(R.id.btn_result)).perform(ViewActions.click())
+//        Thread.sleep(2000)
+//        for (i in 0..14){
+//        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+//       }
+//        onView(withId(R.id.btn_result)).perform(ViewActions.click())
+//
+//
+//    }
+//}

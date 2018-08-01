@@ -23,7 +23,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
         android:background="#DCDCDC"
-        android:padding="20dp"
         android:src="@drawable/default_image256px" />
 
 
@@ -37,7 +36,7 @@
         tools:text="Медицинская справка" />
 
     <TextView
-        android:id="@+id/show"
+        android:id="@+id/submit_photo"
         style="@style/submitButton"
         android:layout_marginBottom="@dimen/size_10"
         android:layout_below="@+id/description_of_document"

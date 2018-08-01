@@ -1,25 +1,21 @@
 package com.example.virus.kotlininfamily
 
 import android.content.pm.ActivityInfo
-import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.runner.AndroidJUnit4
-import com.example.virus.kotlininfamily.ui.main.MainMenuActivity
-import android.support.test.espresso.action.ViewActions
 import android.support.test.espresso.action.ViewActions.*
+import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import android.support.test.espresso.matcher.ViewMatchers.*
+import android.support.test.rule.ActivityTestRule
+import android.support.test.runner.AndroidJUnit4
+import android.support.v7.widget.RecyclerView
+import com.example.virus.kotlininfamily.R.id.recyclerView
+import com.example.virus.kotlininfamily.ui.main.MainMenuActivity
+import com.example.virus.kotlininfamily.ui.main.section_for_parent.ParentActivity
+import kotlinx.android.synthetic.main.activity_header_menu.*
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import android.support.test.rule.ActivityTestRule
-import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main_menu.*
-import org.junit.Assert.*
-import org.junit.Rule
-import java.util.*
-import android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition
-import android.support.test.espresso.matcher.ViewMatchers.isRoot
-import com.example.virus.kotlininfamily.R.id.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -27,62 +23,88 @@ import com.example.virus.kotlininfamily.R.id.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class UiTest {
+class ExampleInstrumentedTest {
+
+
+
+//    @Test
+//    fun orientationTest() {
+//        onView(withId(R.id.recyclerView)).perform(swipeRight())
+//        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+//        mainRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+//    }
+//
+//    @Test
+//    fun clickTest() {
+//        onView(withId( R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+//        Thread.sleep(2000)
+//        onView(isRoot()).perform(pressBack())
+//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+//        for (i in 0..2) {
+//            onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+//            Thread.sleep(1000)
+//            onView(isRoot()).perform(pressBack())
+//        }
+//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+//        for (i in 0..2) {
+//            onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+//            Thread.sleep(1000)
+//            onView(isRoot()).perform(pressBack())
+//        }
+//
+//
+//        onView(withId(R.id.recyclerView)).perform(swipeUp())
+//    }
+//
+//    @Test
+//    fun becomeParentActivityTest() {
+//        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+//        Thread.sleep(2000)
+//        onView(withId(mViewPager)).perform(swipeLeft())
+//        onView(withId(mViewPager)).perform(swipeUp())
+//        onView(withId(mViewPager)).perform(swipeDown())
+//        Thread.sleep(1000)
+//        onView(withId(mViewPager)).perform(swipeRight())
+//        onView(withId(mViewPager)).perform(swipeUp())
+//        onView(withId(mViewPager)).perform(swipeDown())
+//        Thread.sleep(1000)
+//        onView(withId(mViewPager)).perform(swipeLeft())
+//        onView(withId(mViewPager)).perform(swipeUp())
+//        onView(withId(mViewPager)).perform(swipeDown())
+//        Thread.sleep(1000)
+//        onView(withId(mViewPager)).perform(swipeLeft())
+//        onView(withId(mViewPager)).perform(swipeUp())
+//        onView(withId(mViewPager)).perform(swipeDown())
+//        Thread.sleep(1000)
+//        onView(withId(mViewPager)).perform(swipeRight())
+//        onView(withId(mViewPager)).perform(swipeUp())
+//        onView(withId(mViewPager)).perform(swipeDown())
+//        onView(isRoot()).perform(pressBack())
+//    }
+
+
+
     @get:Rule
     val mainRule = ActivityTestRule(
             MainMenuActivity::class.java)
 
     @Test
-    fun orientationTest(){
-        onView(withId(R.id.recyclerView)).perform(swipeRight())
-        mainRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-        mainRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-    }
-    @Test
-    fun clickTest(){
-      onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-        Thread.sleep(2000)
-        onView(isRoot()).perform(pressBack())
-        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
-        for (i in 0..2){
-            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-            Thread.sleep(1000)
-            onView(isRoot()).perform(pressBack())
-        }
-      onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-        for (i in 0..2){
-            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
-            Thread.sleep(1000)
-            onView(isRoot()).perform(pressBack())
-        }
+    fun testOnClickForParents() {
 
 
-        onView(withId(recyclerView)).perform(swipeUp())
+        onView(withId(R.id.recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        onView(withId(R.id.recyclerView)).check(matches(isDisplayed()))
+        for(i in 0  until 3) {
+
+            onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(i, click()))
+            onView(withId(R.id.categoryRecyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+            onView(withId(R.id.tw_article_title)).check(matches(isDisplayed()))
+            onView(withId(R.id.tw_article_text)).check(matches(isDisplayed()))
+            onView(isRoot()).perform(pressBack())
+            onView(isRoot()).perform(pressBack())
+
+        }
+
     }
-    @Test
-fun becomeParentActivityTest(){
-        onView(withId(recyclerView)).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-        Thread.sleep(2000)
-        onView(withId(information)).perform(click())
-        onView(withId(mViewPager)).perform(swipeLeft())
-        onView(withId(mViewPager)).perform(swipeUp())
-        onView(withId(mViewPager)).perform(swipeDown())
-        Thread.sleep(1000)
-        onView(withId(mViewPager)).perform(swipeRight())
-        onView(withId(mViewPager)).perform(swipeUp())
-        onView(withId(mViewPager)).perform(swipeDown())
-        Thread.sleep(1000)
-        onView(withId(mViewPager)).perform(swipeLeft())
-        onView(withId(mViewPager)).perform(swipeUp())
-        onView(withId(mViewPager)).perform(swipeDown())
-        Thread.sleep(1000)
-        onView(withId(mViewPager)).perform(swipeLeft())
-        onView(withId(mViewPager)).perform(swipeUp())
-        onView(withId(mViewPager)).perform(swipeDown())
-        Thread.sleep(1000)
-        onView(withId(mViewPager)).perform(swipeRight())
-        onView(withId(mViewPager)).perform(swipeUp())
-        onView(withId(mViewPager)).perform(swipeDown())
-        onView(isRoot()).perform(pressBack())
-    }
+
 }
