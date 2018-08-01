@@ -23,6 +23,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     var map: HashMap<Int, String> = HashMap()
     private var selectedIndex: Int = -1
     private lateinit var presenter: DocumentPresenter
+    private var documentName: String? = null
 
 
 
@@ -70,6 +71,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
     override fun onItemSelectedAt(index: Int, document: String) {
         this.selectedIndex = index
+        this.documentName = document
 
         showDialog()
     }
@@ -118,7 +120,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         ft.addToBackStack(null)
 
 
-        val newFragment = MyDialogFragment.newInstance("j", map[selectedIndex])
+        val newFragment = MyDialogFragment.newInstance(documentName!!, map[selectedIndex])
 
         newFragment!!.show(ft, "dialog")
 

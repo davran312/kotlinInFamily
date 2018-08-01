@@ -8,13 +8,15 @@
     android:minWidth="1000dp">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/image_photo"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:text="Документ:"
-        android:textSize="@dimen/size_20" />
+        android:textSize="@dimen/size_25" />
     <ImageView
         android:id="@+id/image_photo"
         android:layout_width="300dp"
@@ -30,9 +32,10 @@
         android:id="@+id/description_of_document"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/image_photo"
+        android:layout_alignStart="@+id/textView2"
         android:layout_below="@+id/image_photo"
-        android:layout_marginTop="26dp"
+        android:textSize="@dimen/size_20"
+        android:layout_marginTop="12dp"
         tools:text="Медицинская справка" />
 
     <TextView

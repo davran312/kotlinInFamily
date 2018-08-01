@@ -33,18 +33,19 @@ import java.io.File
  * Created by admin on 7/31/18.
  */
 class MyDialogFragment : DialogFragment() {
-    internal var mNum: Int = 0
 
+    private var documentName: String? = null
     private var imagePath:String? = null
     lateinit var v: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_dialog, container)
-        mNum = arguments!!.getInt("num")
 
-
+        documentName = arguments!!.getString(Const.INTENT_GET_DOCUMENT)
+        v.description_of_document.text = documentName
         imagePath = arguments!!.getString(Const.INTENT_GET_IMAGE)
+
         if(!TextUtils.isEmpty(imagePath))
             showImage()
         v.image_photo.setOnClickListener{
