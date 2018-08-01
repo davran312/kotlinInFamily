@@ -15,8 +15,7 @@ import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_documents.*
 import okhttp3.ResponseBody
 
-class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContract.View {
-
+class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentContract.View {
 
 
     private var adapter: DocumentAdapter? = null
@@ -26,25 +25,32 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     private var documentName: String? = null
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_documents)
-        initVariables()
-        initAdapter()
 
-        button_send_request.setOnClickListener{
-            sendApplication()
-        }
+        init()
 
 
     }
 
+    private fun init() {
+        initVariables()
+        initAdapter()
+        initListeners()
+    }
+
+    private fun initListeners() {
+
+        button_send_request.setOnClickListener {
+            sendApplication()
+        }
+    }
 
     private fun initVariables() {
         presenter = DocumentPresenter(this)
-        val temp:HashMap<Int,String>? =FileUtils.readCacheData(this,Const.CACHE_URI_DIRECTORY)
-        if(temp != null)
+        val temp: HashMap<Int, String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
+        if (temp != null)
             map = temp
 
 
@@ -52,20 +58,19 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
     private fun initAdapter() {
         adapter = DocumentAdapter(resources.getStringArray
-        (com.example.virus.kotlininfamily.R.array.documents_list),map,this)
-        recyclerViewOfDocuments.addItemDecoration( DividerItemDecoration(this))
+        (com.example.virus.kotlininfamily.R.array.documents_list), map, this)
+        recyclerViewOfDocuments.addItemDecoration(DividerItemDecoration(this))
         recyclerViewOfDocuments.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         recyclerViewOfDocuments.adapter = adapter
     }
 
-    fun sendApplication(){
-        if(map.size == 0)
-            Toast.makeText(this,"Заявка пуста",Toast.LENGTH_LONG).show()
-
+    fun sendApplication() {
+        if (map.size == 0)
+            Toast.makeText(this, "Заявка пуста", Toast.LENGTH_LONG).show()
         else if (map.size < 8)
-            Toast.makeText(this,"Заполните недостающие поля",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
         else
-            presenter.sendApplication(map,this)
+            presenter.sendApplication(map, this)
 
     }
 
@@ -76,18 +81,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
         showDialog()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode != RESULT_CANCELED && resultCode == RESULT_OK && requestCode == 1 && data != null) {
-            val imagePath = data.getStringExtra("path")
-            if (selectedIndex != -1 && !map.containsKey(selectedIndex)) map.put(selectedIndex, imagePath)
-            else if (map.containsKey(selectedIndex)) map[selectedIndex] = imagePath
-            adapter?.setFilledIndex(selectedIndex, imagePath)
-        }
 
-    }
-
-    fun onGetData(imagePath : String){
+    fun onGetDataFromDialog(imagePath: String) {
         if (imagePath != null) {
             if (selectedIndex != -1 && !map.containsKey(selectedIndex)) map.put(selectedIndex, imagePath)
             else if (map.containsKey(selectedIndex)) map[selectedIndex] = imagePath
@@ -96,23 +91,20 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
     }
 
     override fun onSuccess(result: ResponseBody) {
-        Toast.makeText(this,"Заявка отправляется",Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Заявка отправляется", Toast.LENGTH_LONG).show()
 
     }
+
     override fun onBackPressed() {
-        FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
+        FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
         super.onBackPressed()
     }
 
 
-
     fun showDialog() {
 
-        // DialogFragment.show() will take care of adding the fragment
-        // in a transaction.  We also want to remove any currently showing
-        // dialog, so make our own transaction and take care of that here.
         val ft = supportFragmentManager.beginTransaction()
-        val prev = supportFragmentManager.findFragmentByTag("dialog")
+        val prev = supportFragmentManager.findFragmentByTag(Const.TAG_FOR_SHOW_DIALOG_FRAGMENT)
 
         if (prev != null) {
             ft.remove(prev)
@@ -122,7 +114,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener,DocumentContr
 
         val newFragment = MyDialogFragment.newInstance(documentName!!, map[selectedIndex])
 
-        newFragment!!.show(ft, "dialog")
+        newFragment!!.show(ft, Const.TAG_FOR_SHOW_DIALOG_FRAGMENT)
 
     }
 }

@@ -11,6 +11,7 @@ object Const {
     val EXTRA_SERIALIZABLE: String = "serialazable"
     val EXTRA_SPECIALIST_ID:String ="specialistArticle"
     val ONE_CORRECT_QUESTION_IN_PERCENTAGE = 6.66
+    val TAG_FOR_SHOW_DIALOG_FRAGMENT = "dialog"
 
 
 }

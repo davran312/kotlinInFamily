@@ -35,46 +35,63 @@ import java.io.File
 class MyDialogFragment : DialogFragment() {
 
     private var documentName: String? = null
-    private var imagePath:String? = null
+    private var imagePath: String? = null
     lateinit var v: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_dialog, container)
 
-        documentName = arguments!!.getString(Const.INTENT_GET_DOCUMENT)
-        v.description_of_document.text = documentName
-        imagePath = arguments!!.getString(Const.INTENT_GET_IMAGE)
-
-        if(!TextUtils.isEmpty(imagePath))
-            showImage()
-        v.image_photo.setOnClickListener{
-            showPickDialogItem()
-        }
-
-        v.submit_photo.setOnClickListener{
-            if(!TextUtils.isEmpty(imagePath)){
-                Log.d("Quantity: ", imagePath)
-                val callingActivity = activity as DocumentsActivity?
-                callingActivity!!.onGetData(imagePath!!)
-                dialog.dismiss()
-
-
-            }else {
-                FileLog.showError(v.context, "Nothing to save")
-            }
-        }
+        getDataFromBundle()
+        init()
+        checkTheStateOfImagePhoto()
 
         return v
     }
 
+    private fun getDataFromBundle() {
+
+        documentName = arguments!!.getString(Const.INTENT_GET_DOCUMENT)
+        v.description_of_document.text = documentName
+        imagePath = arguments!!.getString(Const.INTENT_GET_IMAGE)
+
+    }
+
+    private fun init() {
+        initListeners()
+    }
+
+    private fun initListeners() {
+
+        v.image_photo.setOnClickListener {
+            showPickDialogItem()
+        }
+
+        v.submit_photo.setOnClickListener {
+            if (!TextUtils.isEmpty(imagePath)) {
+                Log.d("Quantity: ", imagePath)
+                val callingActivity = activity as DocumentsActivity?
+                callingActivity!!.onGetDataFromDialog(imagePath!!)
+                dialog.dismiss()
 
 
-    private fun showPickDialogItem(){
-        val args = arrayOf<String>(getString(R.string.pick_photo_from_camera),getString(R.string.pick_photo_from_gallery))
+            } else {
+                FileLog.showError(v.context, "Nothing to save")
+            }
+        }
+    }
+
+    private fun checkTheStateOfImagePhoto() {
+        if (!TextUtils.isEmpty(imagePath)) {
+            showImage()
+        }
+    }
+
+    private fun showPickDialogItem() {
+        val args = arrayOf<String>(getString(R.string.pick_photo_from_camera), getString(R.string.pick_photo_from_gallery))
         AlertDialog.Builder(v.context)
-                .setItems(args,{dialog,w->
-                    if(w ==0)
+                .setItems(args, { dialog, w ->
+                    if (w == 0)
                         takePhotoFromCamera()
                     else
                         takePhotoFromGallery()
@@ -83,71 +100,73 @@ class MyDialogFragment : DialogFragment() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == Permissions.Request.READ_EXTERNAL_STORAGE && grantResults.isNotEmpty() &&
-                grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == Permissions.Request.READ_EXTERNAL_STORAGE && grantResults.isNotEmpty() &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             takePhotoFromGallery()
-        }
-        else if(requestCode == Permissions.Request.CAMERA && grantResults.isNotEmpty() &&
+        } else if (requestCode == Permissions.Request.CAMERA && grantResults.isNotEmpty() &&
                 grantResults[0] == PackageManager.PERMISSION_GRANTED)
             takePhotoFromCamera()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK && data != null){
-            if(requestCode == 989){
-                imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE,data.data)
+        if (resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK && data != null) {
+            if (requestCode == 989) {
+                imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE, data.data)
             }
-            if(requestCode == 2){
-                val uri = FileUtils.getPickImageResultUri(v.context,data,imagePath)
-                imagePath = FileUtils.getNormalizedUri(v.context,uri).path
+            if (requestCode == 2) {
+                val uri = FileUtils.getPickImageResultUri(v.context, data, imagePath)
+                imagePath = FileUtils.getNormalizedUri(v.context, uri).path
             }
             showImage()
         }
     }
-    private fun takePhotoFromCamera(){
-        if(Permissions.iPermissionCamera(activity as AppCompatActivity)){
+
+    private fun takePhotoFromCamera() {
+        if (Permissions.iPermissionCamera(activity as AppCompatActivity)) {
             imagePath = System.nanoTime().toString()
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             val uri = FileUtils.getCaptureImageOutputUri(
-                    v.context,imagePath)
-            if(uri != null){
+                    v.context, imagePath)
+            if (uri != null) {
                 val file = File(uri.path)
-                if(Build.VERSION.SDK_INT >=24){
+                if (Build.VERSION.SDK_INT >= 24) {
                     intent.putExtra(MediaStore.EXTRA_OUTPUT,
                             FileProvider.getUriForFile(
-                                    v.context, BuildConfig.APPLICATION_ID+".provider",file))
+                                    v.context, BuildConfig.APPLICATION_ID + ".provider", file))
                     intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                }else
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT,uri)
-                startActivityForResult(intent,2)
+                } else
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+                startActivityForResult(intent, 2)
             }
         }
     }
-    private fun takePhotoFromGallery(){
-        if(Permissions.iPermissionReadStorage(activity as AppCompatActivity)){
+
+    private fun takePhotoFromGallery() {
+        if (Permissions.iPermissionReadStorage(activity as AppCompatActivity)) {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.type = "image/*"
-            startActivityForResult(intent,989)
+            startActivityForResult(intent, 989)
         }
     }
-    private fun showImage(){
+
+    private fun showImage() {
         val exist = File(imagePath).exists()
         Glide.with(this)
                 .load(
-                        if(exist) imagePath
+                        if (exist) imagePath
                         else R.drawable.default_image256px)
                 .into(image_photo)
 
-        if(!exist)
-            FileLog.showError(v.context,"Произошла ошибка")
+        if (!exist)
+            FileLog.showError(v.context, "Произошла ошибка")
     }
 
 
     companion object {
 
-        internal fun newInstance(documentName: String,  imagePath: String?): MyDialogFragment {
+        internal fun newInstance(documentName: String, imagePath: String?): MyDialogFragment {
             val f = MyDialogFragment()
 
             val args = Bundle()
