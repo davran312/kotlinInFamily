@@ -21,8 +21,6 @@ class LoginActivity :BaseActivity() {
                 finish()
             }
         }
-
-
     }
 
     private fun checkInputFieldValues(): Boolean {

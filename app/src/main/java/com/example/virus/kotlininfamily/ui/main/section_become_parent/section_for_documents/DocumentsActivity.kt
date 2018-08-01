@@ -113,7 +113,6 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
 
         val newFragment = MyDialogFragment.newInstance(documentName!!, map[selectedIndex])
-
         newFragment!!.show(ft, Const.TAG_FOR_SHOW_DIALOG_FRAGMENT)
 
     }

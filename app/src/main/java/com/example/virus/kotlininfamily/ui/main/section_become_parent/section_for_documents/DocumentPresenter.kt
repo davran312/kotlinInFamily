@@ -58,7 +58,7 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
         body.addFormDataPart("phone",authInfoList.get(2))
         body.addFormDataPart("email",authInfoList.get(1))
         body.addFormDataPart("device_id",authInfoList.get(2))
-          val array: Array<Array<String>> = arrayOf(context.resources.getStringArray(R.array.server_document_titles))
+              val array: Array<Array<String>> = arrayOf(context.resources.getStringArray(R.array.server_document_titles))
           for(i in 0.. map.size-1){
               if(map.get(i).isNullOrEmpty())
                   Toast.makeText(context,""+i,Toast.LENGTH_SHORT).show()

@@ -157,7 +157,7 @@ class MyDialogFragment : DialogFragment() {
                 .load(
                         if (exist) imagePath
                         else R.drawable.default_image256px)
-                .into(image_photo)
+                .into(v.image_photo)
 
         if (!exist)
             FileLog.showError(v.context, "Произошла ошибка")

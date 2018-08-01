@@ -8,6 +8,8 @@ import retrofit2.Response
 
 class ChildPresenter(val view:ChildContract.View) :ChildContract.Presenter{
 
+
+
     override fun getMainMenuCategoryArticles(id: Int) {
         if(isViewAttached()){
             view?.showProgress()
