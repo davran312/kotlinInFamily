@@ -12,6 +12,9 @@ object Const {
     val EXTRA_SPECIALIST_ID:String ="specialistArticle"
     val ONE_CORRECT_QUESTION_IN_PERCENTAGE = 6.66
     val TAG_FOR_SHOW_DIALOG_FRAGMENT = "dialog"
+    val UDAPTE_APPLICATION_STATUS = "update"
+    val USER_ID = "userId"
+
 
 
 }

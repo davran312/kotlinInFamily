@@ -10,64 +10,85 @@ import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.StartApplication
+import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.models.DocumentStatus
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_documents.*
 import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import java.io.File
+
 
 class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentContract.View {
+
 
 
     private var adapter: DocumentAdapter? = null
     var map: HashMap<Int, String> = HashMap()
     private var selectedIndex: Int = -1
+    private  var updateCode: Int = 0
+
     private lateinit var presenter: DocumentPresenter
     private var documentName: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_documents)
+        init(updateCode)
+        checkStatus(updateCode)
 
-        init()
 
 
     }
 
-    private fun init() {
+    private fun checkStatus(updateCode: Int?) {
+        if(updateCode == 3)
+        {
+            Toast.makeText(this,"Ваша заявка рассматривается",Toast.LENGTH_SHORT).show()
+            button_send_request.isClickable = false
+        }
+        else if (updateCode == 5)
+        {
+            Toast.makeText(this,"Ваша заявка успешно принята",Toast.LENGTH_SHORT).show()
+            button_send_request.isClickable = false
+        }
+
+    }
+
+    private fun init(code:Int) {
         initVariables()
         initAdapter()
-        initListeners()
+        initListeners(code)
+    }
+    override fun onSuccessStatus(status: Int) {
+        Toast.makeText(this,""+status,Toast.LENGTH_SHORT).show()
+        updateCode = status
     }
 
-    private fun initListeners() {
 
-        button_send_request.setOnClickListener {
-            sendApplication()
-        }
-        get_status.setOnClickListener {
-            StartApplication.service.updateDocumentStatus(2).enqueue(object : Callback<DocumentStatus> {
-                override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
-                    Log.d("_________",response!!.body()!!.family_correct.toString())
-                }
+    private fun initListeners(code:Int) {
+       button_send_request.setOnClickListener {
+           when(code){
+               1-> updateApplication()
+               3-> resetApplication()
+               else -> sendApplication()
+           }
+       }
+    }
 
-                override fun onFailure(call: Call<DocumentStatus>?, t: Throwable?) {
-
-                }
-            })
-        }
+    private fun resetApplication() {
 
     }
 
+    private fun updateApplication() {
+        presenter.updateApplication(map,this)
+    }
 
 
     private fun initVariables() {
         presenter = DocumentPresenter(this)
+        presenter.checkStatus(map,this)
         val temp: HashMap<Int, String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
         if (temp != null)
             map = temp
@@ -84,12 +105,15 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     }
 
     fun sendApplication() {
+
+        val list: Array<out String>? = (resources.getStringArray(R.array.documents_list))
         if (map.size == 0)
             Toast.makeText(this, "Заявка пуста", Toast.LENGTH_LONG).show()
-        else if (map.size < 8)
+        else if (map.size < list!!.size)
             Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
-        else
-            presenter.sendApplication(map, this)
+        else{
+            presenter.sendApplication(map, this,this)
+        }
 
     }
 
@@ -109,8 +133,16 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         }
     }
 
-    override fun onSuccess(result: ResponseBody) {
-        Toast.makeText(this, "Заявка отправляется", Toast.LENGTH_LONG).show()
+    override fun onSuccess(result: DocumentStatus) {
+        FileUtils.writeCacheData(this,Const.USER_ID,result.id)
+        FileUtils.writeCacheData(this,"model",result)
+        Toast.makeText(this, "Заявка отправляется ", Toast.LENGTH_LONG).show()
+
+    }
+
+    private fun getId(body: String): String {
+        return body.toString()
+
 
     }
 

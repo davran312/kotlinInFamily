@@ -8,6 +8,7 @@ import com.example.virus.kotlininfamily.models.SpecialistList
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.ui.main.section_for_child.specialistNames.SpecialistNamesActivity
 import com.example.virus.kotlininfamily.utils.Const
+import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_main_menu.*
 
 class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAdapter.Listener {
@@ -23,9 +24,14 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
             init()
         }
         private fun init(){
-            presenter = SpecialistPresenter(this)
-            presenter.getSpecialistList()
-
+            val list:List<SpecialistList>? = FileUtils.readCacheData(this,"specialistCategories")
+            if (list!=null){
+                initRecyclerView(list)
+            }
+            else {
+                presenter = SpecialistPresenter(this)
+                presenter.getSpecialistList()
+            }
         }
         private fun initRecyclerView(result: List<SpecialistList>) {
             val imageList = getImageList()
@@ -47,6 +53,7 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
     override fun onSuccess(result: List<SpecialistList>) {
         initRecyclerView(result)
         list = result
+        FileUtils.writeCacheData(this,"specialistCategories",list)
     }
 
     override fun onItemSelectedAt(position: Int) {

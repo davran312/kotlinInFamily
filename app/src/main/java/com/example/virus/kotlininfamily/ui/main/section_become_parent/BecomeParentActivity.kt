@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main_menu.*
 
 class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildContract.View {
     lateinit var list: List<Categories>
-    lateinit var presenter: ChildPresenter
+    lateinit var presenter: BecomeParentPresenter
     lateinit var adapter : BecomeParentAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildCon
     override fun onSuccess(result: List<Categories>) {
         initRecyclerView(result)
         list = result
-
+        FileUtils.writeCacheData(this,"becomeParent",list)
     }
 
     private fun initRecyclerView(result:List<Categories>) {
@@ -37,8 +37,15 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildCon
     }
 
     fun init() {
-        presenter = ChildPresenter(this)
+        val list:List<Categories>? = FileUtils.readCacheData(this,"becomeParent")
+        if (list!=null){
+            initRecyclerView(list)
+        }
+        else{
+        presenter = BecomeParentPresenter(this)
         presenter.getMainMenuCategoryArticles(3)
+        }
+
     }
 
     override fun onItemSelectedAt(position: Int) {

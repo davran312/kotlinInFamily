@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:name=".StartApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,7 +43,6 @@
         <activity android:name=".ui.main.section_become_parent.BecomeParentActivity" />
         <activity android:name=".ui.main.section_become_parent.section_information.InformationActivity" />
         <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentsActivity" />
-        <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentFillActivity" />
         <activity android:name=".ui.main.section_become_parent.section_authorization.LoginActivity"/>
         <activity android:name=".ui.main.section_become_parent.section_test.TestActivity"/>
         <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity"
