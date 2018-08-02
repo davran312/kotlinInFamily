@@ -16,6 +16,7 @@ import com.example.virus.kotlininfamily.ui.main.section_for_child.categories.Cat
 import com.example.virus.kotlininfamily.ui.main.section_for_child.categories.CategoryContract
 import com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity
 import com.example.virus.kotlininfamily.utils.Const
+
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_main_menu.*
 
@@ -23,7 +24,7 @@ val CATEGORY_TITL="ca"
 var CATEGORY_ID=4
 
 class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
-     var list: ArrayList<Categories> = ArrayList()
+    var list: ArrayList<Categories> = ArrayList()
     lateinit var presenter: ChildPresenter
     lateinit var adapter :ChildAdapter
 
@@ -43,7 +44,7 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
         list = result as ArrayList<Categories>
         list.add(Categories(0,"Cписок специалистов","",""+R.drawable.expert))
         initRecyclerView(result)
-        FileUtils.writeCacheData(this,"childActivity",list)
+
     }
 
     private fun initRecyclerView(result: ArrayList<Categories>) {
@@ -53,35 +54,31 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
     }
 
     fun init() {
-        val list:List<Categories>? =  FileUtils.readCacheData(this,"childActivity")
-        if (list!=null){
-            initRecyclerView(list as ArrayList<Categories>)
-        }
-        else{
+
         presenter = ChildPresenter(this)
         presenter.getMainMenuCategoryArticles(1)
     }
-    }
+
 
     override fun onItemSelectedAt(position: Int) {
         if(position == list.size-1){
-                val intent = Intent(this, SpecialistActivity::class.java)
-                startActivity(intent)
-            }
-            else{
-        when(position){
-            0-> CATEGORY_ID = 3
-            1-> CATEGORY_ID = 4
-            2-> CATEGORY_ID = 5
-            3-> CATEGORY_ID = 17
-            4-> CATEGORY_ID = 19
+            val intent = Intent(this, SpecialistActivity::class.java)
+            startActivity(intent)
         }
-        val intent=  Intent(this, CategoriesActivity::class.java)
-        intent.putExtra(Const.EXTRA_CATEGORY, CATEGORY_ID)
+        else{
+            when(position){
+                0-> CATEGORY_ID = 3
+                1-> CATEGORY_ID = 4
+                2-> CATEGORY_ID = 5
+                3-> CATEGORY_ID = 17
+                4-> CATEGORY_ID = 19
+            }
+            val intent=  Intent(this, CategoriesActivity::class.java)
+            intent.putExtra(Const.EXTRA_CATEGORY, CATEGORY_ID)
             intent.putExtra("titleId",position)
 
             startActivity(intent)
-    }
+        }
 
-}
+    }
 }

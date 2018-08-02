@@ -28,7 +28,7 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildCon
     override fun onSuccess(result: List<Categories>) {
         initRecyclerView(result)
         list = result
-        FileUtils.writeCacheData(this,"becomeParent",list)
+
     }
 
     private fun initRecyclerView(result:List<Categories>) {
@@ -37,14 +37,10 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,ChildCon
     }
 
     fun init() {
-        val list:List<Categories>? = FileUtils.readCacheData(this,"becomeParent")
-        if (list!=null){
-            initRecyclerView(list)
-        }
-        else{
+
         presenter = BecomeParentPresenter(this)
         presenter.getMainMenuCategoryArticles(3)
-        }
+
 
     }
 

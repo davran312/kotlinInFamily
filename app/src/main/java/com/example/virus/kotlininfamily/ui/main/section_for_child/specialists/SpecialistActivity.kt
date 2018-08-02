@@ -15,30 +15,26 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
 
 
     private lateinit var adapter: SpecialistAdapter
-        private lateinit var presenter: SpecialistPresenter
-        private lateinit var list:List<SpecialistList>
+    private lateinit var presenter: SpecialistPresenter
+    private lateinit var list:List<SpecialistList>
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main_menu)
-            init()
-        }
-        private fun init(){
-            val list:List<SpecialistList>? = FileUtils.readCacheData(this,"specialistCategories")
-            if (list!=null){
-                initRecyclerView(list)
-            }
-            else {
-                presenter = SpecialistPresenter(this)
-                presenter.getSpecialistList()
-            }
-        }
-        private fun initRecyclerView(result: List<SpecialistList>) {
-            val imageList = getImageList()
-            adapter = SpecialistAdapter(result, this, imageList)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = adapter
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main_menu)
+        init()
+    }
+    private fun init(){
+
+            presenter = SpecialistPresenter(this)
+            presenter.getSpecialistList()
+
+    }
+    private fun initRecyclerView(result: List<SpecialistList>) {
+        val imageList = getImageList()
+        adapter = SpecialistAdapter(result, this, imageList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+    }
 
     private fun getImageList(): ArrayList<Int> {
         val list: ArrayList<Int> = ArrayList()
@@ -51,16 +47,17 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
     }
 
     override fun onSuccess(result: List<SpecialistList>) {
-        initRecyclerView(result)
         list = result
-        FileUtils.writeCacheData(this,"specialistCategories",list)
+        initRecyclerView(result)
+
+
     }
 
     override fun onItemSelectedAt(position: Int) {
-            val intent = Intent(this, SpecialistNamesActivity::class.java)
-            intent.putExtra(Const.EXTRA_SERIALIZABLE,list.get(position))
-            startActivity(intent)
-        }
+        val intent = Intent(this, SpecialistNamesActivity::class.java)
+        intent.putExtra(Const.EXTRA_SERIALIZABLE,list.get(position))
+        startActivity(intent)
     }
+}
 
 

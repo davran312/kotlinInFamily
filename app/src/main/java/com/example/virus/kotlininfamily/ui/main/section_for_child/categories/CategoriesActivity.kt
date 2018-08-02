@@ -26,7 +26,7 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapte
     private lateinit var presenterSpecialist: SpecialistPresenter
     private lateinit var list:List<Categories>
     lateinit var specialistList:List<SpecialistList>
-    var position=0
+    var position:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,15 +47,11 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapte
     }
 
     private fun init(){
-        var list:List<Categories>? = FileUtils.readCacheData(this,"categoryActivity"+position)
-        if (list!=null){
-            initRecyclerView(list)
-        }
-        else{
+
         presenter = CategoryPresenter(this)
         presenter.getCategoriesById(intent.getIntExtra(Const.EXTRA_CATEGORY,1))
     }
-    }
+
     private fun initRecyclerView(result: List<Categories>) {
         adapter = CategoryAdapter(result,this)
         categoryRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -66,15 +62,12 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapte
         initRecyclerView(result)
         list = result
 
-
     }
 
     override fun onItemSelectedAt(position: Int) {
 
         var intent = Intent(this,ArticleActivity::class.java)
-        this.position =position
         intent.putExtra(Const.EXTRA_SERIALIZABLE,list.get(position))
-        FileUtils.writeCacheData(this,"categoryActuvity"+position,list)
         startActivity(intent)
-        }
     }
+}
