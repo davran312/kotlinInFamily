@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_article.*
 class SpecialistArticleActivity :BaseActivity(),SpecialistArticleContract.View{
 
     private lateinit var adapter: SpecialistArticleAdapter
-    private lateinit var item: SpecialistArticle
+    private lateinit var specialistArticle: SpecialistArticle
     private  var presenter: SpecialistArticlePresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class SpecialistArticleActivity :BaseActivity(),SpecialistArticleContract.View{
 
     override fun onSuccess(result: SpecialistArticle) {
         initRecyclerView(result)
-        item = result
+        specialistArticle = result
     }
     fun maps(view:View){
             var uri=Uri.parse("geo:<"+ lat+">,<"+ long+">?q=<"+ lat+">,<"+ long+">("+ labelLocation+")0")

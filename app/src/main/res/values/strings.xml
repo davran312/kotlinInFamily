@@ -407,6 +407,7 @@
     <string name="bad_result">Вы готовы стать приемным родителем на %s%%, рекомендуем обсудить вопросы данного теста со специалистом (психологом, соц.работником, опытными приёмными родителями)</string>
     <string name="your_result_text">Ваш результат:</string>
     <string name="result_submit_text">Подтвердить</string>
+    <string name="default_text">Нету</string>
 
     <string-array name="noAnswerIndexesAreRight">
         <item>2</item>

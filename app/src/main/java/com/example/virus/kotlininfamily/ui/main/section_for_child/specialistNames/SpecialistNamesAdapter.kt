@@ -24,13 +24,28 @@ class SpecialistNamesAdapter (private var item:List<Specialist> , var listener: 
     inner class ViewHolder(itemView: View?):RecyclerView.ViewHolder(itemView){
         fun bind(position:Int){
             itemView.titleView.text = item.get(position).name
-            Glide.with(itemView).load(item.get(position).photo).into(itemView.imageView)
+
+            if(item[position].photo != null) {
+                var urlPhoto = changeUrlOfPhoto(item[position].photo)
+                Glide.with(itemView).load(urlPhoto).into(itemView.imageView)
+
+            }else{
+
+                Glide.with(itemView).load(R.drawable.default_profile_image).into(itemView.imageView)
+
+            }
             itemView.tag = position
             itemView.setOnClickListener{v->
                 val index = v.tag as Int
                 listener.onItemSelectedAt(index)
             }
         }}
+
+    private fun changeUrlOfPhoto(photoUrl: String?): String {
+         var res = "http://165.227.147.84:5678" + photoUrl
+        return res
+    }
+
     interface Listener{
         fun onItemSelectedAt(position:Int)
     }
