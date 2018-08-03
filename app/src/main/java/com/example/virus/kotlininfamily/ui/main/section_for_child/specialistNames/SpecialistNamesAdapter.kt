@@ -42,7 +42,7 @@ class SpecialistNamesAdapter (private var item:List<Specialist> , var listener: 
         }}
 
     private fun changeUrlOfPhoto(photoUrl: String?): String {
-         var res = "http://165.227.147.84:5678" + photoUrl
+         var res = "http://165.227.147.84:5678$photoUrl"
         return res
     }
 

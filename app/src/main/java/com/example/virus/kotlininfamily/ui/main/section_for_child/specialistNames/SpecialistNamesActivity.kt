@@ -2,14 +2,11 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child.specialistNam
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.SpecialistList
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
-import com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents.DividerItemDecoration
 import com.example.virus.kotlininfamily.ui.main.section_for_child.specialist_article.SpecialistArticleActivity
 import com.example.virus.kotlininfamily.utils.Const
-import kotlinx.android.synthetic.main.activity_documents.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
 
 class SpecialistNamesActivity : BaseActivity(), SpecialistNamesAdapter.Listener {
