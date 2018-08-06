@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_t
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
@@ -25,7 +26,7 @@ class TestResultActivity : BaseActivity() {
         setContentView(R.layout.activity_test_result)
 
         getCorrectAnswersInPercentage()
-
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
         setResult()
         setProgressOnBar()
         setOnSubmitButtonClickListener()
@@ -87,10 +88,7 @@ class TestResultActivity : BaseActivity() {
 
     private fun setOnSubmitButtonClickListener(){
         btn_submit_result.setOnClickListener {
-
-            val intent = Intent(this, BecomeParentActivity::class.java)
             finish()
-            startActivity(intent)
 
 
         }

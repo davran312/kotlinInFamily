@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nested_parentframe"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewOfDocuments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="463dp"
         android:nestedScrollingEnabled="false"
-        app:layoutManager="LinearLayoutManager"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/item_for_document_activity" />
 
     <TextView
         android:id="@+id/button_send_request"
         style="@style/submitButton"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="@dimen/size_20"
         android:text="Отправить Заявку"
         android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/get_status"
-        style="@style/submitButton"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="@dimen/size_10"
-        android:layout_marginTop="38dp"
-        android:text="poluchit dannie" />
 
 
-</FrameLayout>
+</LinearLayout>
+

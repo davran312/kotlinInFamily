@@ -23,6 +23,8 @@
             android:layout_weight="9"
             android:ellipsize="end"
             android:maxLines="1"
+            android:fontFamily="@font/times_new_roman"
+            android:textSize="20sp"
             android:textColor="@color/colorBlack"
             android:id="@+id/document_name"
             android:text="@string/med_spravka_text" />

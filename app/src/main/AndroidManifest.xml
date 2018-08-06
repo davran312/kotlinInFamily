@@ -8,22 +8,19 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:name=".StartApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/infamily">
 
         <activity
             android:name=".ui.main.MainMenuActivity"
@@ -42,6 +39,8 @@
         <activity android:name="com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity"/>
         <activity android:name=".ui.main.section_for_child.categories.CategoriesActivity" />
         <activity android:name=".ui.main.section_become_parent.BecomeParentActivity" />
+        <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentStatusActivity"
+            android:theme="@style/CustomTheme.NoActionBar"/>
         <activity android:name=".ui.main.section_become_parent.section_information.InformationActivity" />
         <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentsActivity" />
         <activity android:name=".ui.main.section_become_parent.section_authorization.LoginActivity"/>

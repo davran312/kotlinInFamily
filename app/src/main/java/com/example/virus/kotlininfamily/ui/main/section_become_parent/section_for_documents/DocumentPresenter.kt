@@ -22,7 +22,7 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
 
 
 
-    override fun updateApplication( map: HashMap<Int, String>,context: Context) {
+    override fun updateApplication( map: HashMap<Int, String>,context: Context,activity:DocumentsActivity) {
         val bodyBuilder = MultipartBody.Builder()
         fillApplication(map,bodyBuilder,context)
         bodyBuilder.setType(MultipartBody.FORM)
@@ -42,8 +42,8 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
                 override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
                     if(isViewAttached()){
                         if(response!!.isSuccessful && response.body() != null){
-                            view!!.onSuccessStatus(response.body()!!.status)
-                            view!!.onSuccessStatus(response.body()!!.status)
+                            view!!.onSuccessStatus(response.body()!!)
+                            activity.finish()
 
 
                         }
@@ -58,35 +58,6 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
 
             }
         }
-    override fun checkStatus(map:HashMap<Int,String>,context: Context) {
-        val bodyBuilder = MultipartBody.Builder()
-        fillApplication(map,bodyBuilder,context)
-        bodyBuilder.setType(MultipartBody.FORM)
-        val listOfAuthData:ArrayList<String>  =
-                FileUtils.readCacheData(context,Const.USER_AUTH_INFORMATION) as ArrayList<String>
-        val id: String =  listOfAuthData.get(2) as String
-        val userId:Int = FileUtils.readCacheData(context,Const.USER_ID)
-        if(isViewAttached()){
-            view?.showProgress()
-            StartApplication.service.checkStatus(bodyBuilder.build(),userId,id).enqueue(
-                    object :Callback<DocumentStatus>{
-
-                        override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
-                            if(response!!.isSuccessful && response != null) {
-                                view!!.onSuccessStatus(response.body()!!.status)
-
-                            }
-                        }
-                        override fun onFailure(call: Call<DocumentStatus>?, t: Throwable?) {
-                            t?.printStackTrace()
-                        }
-
-                    }
-            )
-            view?.hideProgress()
-
-        }
-    }
 
 
 
@@ -101,10 +72,11 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
                         override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
                             if(isViewAttached()){
                                 if(response!!.isSuccessful && response.body() != null){
-                                    view!!.onSuccess(response.body()!!)
-                                    view!!.onSuccessStatus(response.body()!!.status)
-                                    Log.d("g", response.body().toString())
+                                    view!!.onSuccess(response!!.body()!!)
+                                    view!!.onSuccessStatus(response.body()!!)
+                                    Log.d("___________", response.body().toString())
                                     map.clear()
+                                    activity.finish()
                                 }
                                 else{
                                     view!!.onError("Error")
@@ -125,6 +97,9 @@ class DocumentPresenter(val view:DocumentContract.View?):DocumentContract.Presen
                     })
         }
     }
+
+
+
     private fun fillApplication(map: HashMap<Int, String>, body: MultipartBody.Builder, context: Context){
         val authInfoList :ArrayList<String> = FileUtils.readCacheData(context, Const.USER_AUTH_INFORMATION)
         body.addFormDataPart("name",authInfoList.get(0))

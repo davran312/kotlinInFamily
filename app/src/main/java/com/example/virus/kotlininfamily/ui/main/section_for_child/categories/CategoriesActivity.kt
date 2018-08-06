@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child.categories
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
 import android.view.View
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
@@ -36,14 +37,8 @@ class CategoriesActivity : BaseActivity(), CategoryContract.View, CategoryAdapte
     }
 
     private fun setActionBarTitle() {
-        supportActionBar?.title = when(intent.getIntExtra("titleId",0)){
-            0-> "Часто задаваемые вопросы"
-            1-> "Ресурсы по воспитанию детей"
-            2-> "Поддержка экспертов"
-            3-> "Досуг для детей"
-            4-> "Список экспертов"
-            else ->"InFamily"
-        }
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
+
     }
 
     private fun init(){

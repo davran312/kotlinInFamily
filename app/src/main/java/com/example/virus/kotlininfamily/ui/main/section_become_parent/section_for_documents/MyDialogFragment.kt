@@ -24,6 +24,7 @@ import com.example.virus.kotlininfamily.data.Permissions
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import com.example.virus.kotlininfamily.utils.error_log.FileLog
+import kotlinx.android.synthetic.main.fragment_dialog.*
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
 import java.io.File
 
@@ -80,7 +81,6 @@ class MyDialogFragment : DialogFragment() {
         }
     }
 
-
     private fun checkTheStateOfImagePhoto() {
         if (!TextUtils.isEmpty(imagePath)) {
             showImage()
@@ -88,10 +88,10 @@ class MyDialogFragment : DialogFragment() {
     }
 
     private fun showPickDialogItem() {
-        val args = arrayOf(getString(R.string.pick_photo_from_camera), getString(R.string.pick_photo_from_gallery))
+        val args = arrayOf<String>(getString(R.string.pick_photo_from_gallery))
         AlertDialog.Builder(v.context)
                 .setItems(args, { dialog, w ->
-                    if (w == 0)
+                    if (w == 1)
                         takePhotoFromCamera()
                     else
                         takePhotoFromGallery()

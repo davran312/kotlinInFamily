@@ -31,12 +31,12 @@ class TestAdapter (private var list: Array<String>,
 
             itemView.btn_yes.setBackgroundColor(
                     if(map.containsKey(position) && map[position]!!.isResult!!)
-                         Color.parseColor("#6ED3FF")
+                         Color.parseColor("#d321f3")
                     else
                         Color.parseColor("#1f000000"))
             itemView.btn_no.setBackgroundColor(
                     if(map.containsKey(position) && !map[position]!!.isResult!!)
-                        Color.parseColor("#6ED3FF")
+                        Color.parseColor("#d321f3")
                     else
                         Color.parseColor("#1f000000"))
 

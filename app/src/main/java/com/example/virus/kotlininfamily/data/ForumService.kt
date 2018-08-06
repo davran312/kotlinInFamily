@@ -24,6 +24,6 @@ interface ForumService {
     fun getSpecialistArticle(@Path("id") id:Int): Call<SpecialistArticle>
     @PATCH("documents/{id}/")
     fun updateDocumentStatus(@Body file:RequestBody, @Path("id") id: Int, @Header("DEVICE") deviceId:String): Call<DocumentStatus>
-    @PATCH("documents/{id}/")
-    fun checkStatus(@Body file:RequestBody, @Path("id") id: Int, @Header("DEVICE") deviceId:String): Call<DocumentStatus>
+    @GET("documents/{id}/")
+    fun checkStatus(@Path("id") id: Int, @Header("DEVICE") deviceId:String): Call<DocumentStatus>
 }

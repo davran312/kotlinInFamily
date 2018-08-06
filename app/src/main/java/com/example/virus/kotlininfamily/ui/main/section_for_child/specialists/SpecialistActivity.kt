@@ -3,7 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child.specialists
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
+import android.text.Html
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.SpecialistList
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
@@ -22,6 +22,8 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
+
         init()
     }
     private fun init(){
@@ -57,7 +59,6 @@ class SpecialistActivity :BaseActivity(), SpecialistContract.View, SpecialistAda
     override fun onItemSelectedAt(position: Int) {
         val intent = Intent(this, SpecialistNamesActivity::class.java)
         intent.putExtra(Const.EXTRA_SERIALIZABLE, list[position])
-        Log.e("__________", list[position].people[0].photo.toString())
         startActivity(intent)
     }
 }

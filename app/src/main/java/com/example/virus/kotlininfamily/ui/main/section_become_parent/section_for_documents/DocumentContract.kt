@@ -7,12 +7,11 @@ import com.example.virus.kotlininfamily.utils.IResult
 import com.example.virus.kotlininfamily.utils.IStatusResult
 
 interface DocumentContract {
-    interface View:IProgressBar ,IResult<DocumentStatus>,IStatusResult<Int>
+    interface View:IProgressBar ,IResult<DocumentStatus>,IStatusResult<DocumentStatus>
 
     interface Presenter{
         fun sendApplication(map:HashMap<Int,String>,context: Context,activity: DocumentsActivity)
-        fun updateApplication(map:HashMap<Int,String>,context:Context)
-        fun checkStatus(map:HashMap<Int,String>,context:Context)
+        fun updateApplication(map:HashMap<Int,String>,context:Context,activity: DocumentsActivity)
 
     }
 }

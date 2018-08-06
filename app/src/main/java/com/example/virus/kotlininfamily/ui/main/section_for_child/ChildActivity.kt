@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Html
 import android.view.View
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.Categories
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_main_menu.*
 val CATEGORY_TITL="ca"
 var CATEGORY_ID=4
 
+@Suppress("DEPRECATION")
 class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
     var list: ArrayList<Categories> = ArrayList()
     lateinit var presenter: ChildPresenter
@@ -33,7 +35,7 @@ class ChildActivity: BaseActivity(), ChildAdapter.Listener ,ChildContract.View{
     private var pageId: Int = 1
     override fun onCreate(saveInstanceState: Bundle?){
         super.onCreate(saveInstanceState)
-        supportActionBar?.title = resources.getString(R.string.category2)
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
         setContentView(R.layout.activity_main_menu)
         init()
 

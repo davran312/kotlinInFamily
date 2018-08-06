@@ -1,11 +1,14 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_authorization
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.text.Html
 import android.widget.EditText
 import android.widget.Toast
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
+import com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents.DocumentsActivity
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_login.*
@@ -15,7 +18,7 @@ class LoginActivity :BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
         btn_auth.setOnClickListener {
             if (checkInputFieldValues()) {
                 finish()
@@ -61,5 +64,6 @@ class LoginActivity :BaseActivity() {
         authFields.add(phone)
         FileUtils.writeCacheData(this, Const.USER_AUTH_INFORMATION,authFields)
         Toast.makeText(this,"Данные сохранены",Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this,DocumentsActivity::class.java))
     }
 }

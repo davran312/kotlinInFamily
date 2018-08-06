@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_for_child.specialist_ar
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -25,6 +26,7 @@ class SpecialistArticleActivity : BaseActivity(), SpecialistArticleContract.View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.specialist_article)
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
         init()
 
     }

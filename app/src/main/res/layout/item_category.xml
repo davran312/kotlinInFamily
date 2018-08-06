@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <android.support.v7.widget.CardView id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="190dp"
     android:layout_margin="@dimen/size_8"
     app:cardCornerRadius="6dp"
-    android:layout_gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -31,11 +25,10 @@
         android:text="Хотите стать приемным родителем"
         android:id="@+id/titleView"
         android:textSize="20dp"
-        android:fontFamily="@font/firenight_regular"
+        android:fontFamily="@font/times_new_roman"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 </android.support.v7.widget.CardView>
 
 
-</LinearLayout>

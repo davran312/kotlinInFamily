@@ -2,6 +2,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_t
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.widget.Toast
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
@@ -15,6 +16,7 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
         val questions = resources.getStringArray(R.array.questions_array)
 
         adapter = TestAdapter(questions,map,this)
