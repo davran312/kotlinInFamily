@@ -397,7 +397,7 @@
     с вами связаться</string>
 
     <!-- Strings related to test -->
-    <string name="submit_test">ЗАКОНЧИТЬ ТЕСТ</string>
+    <string name="submit_test">Закончить тест</string>
     <string name="test_no">НЕТ</string>
     <string name="test_yes">ДА</string>
 

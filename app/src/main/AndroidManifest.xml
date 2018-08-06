@@ -45,8 +45,7 @@
         <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentsActivity" />
         <activity android:name=".ui.main.section_become_parent.section_authorization.LoginActivity"/>
         <activity android:name=".ui.main.section_become_parent.section_test.TestActivity"/>
-        <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ui.main.section_for_child.categoriesArticle.ArticleActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

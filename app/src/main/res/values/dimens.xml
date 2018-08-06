@@ -80,7 +80,7 @@
     <dimen name="space_between_spravka_and_med_spravka">12dp</dimen>
     <dimen name="space_between_spravka_and_submit">33dp</dimen>
     <dimen name="space_between_medspravka_title_and_description">14dp</dimen>
-    <dimen name="button_text_size">12sp</dimen>
+    <dimen name="button_text_size">18sp</dimen>
     <dimen name="description_text_size">15sp</dimen>
     <dimen name="text_size_for_documents">19sp</dimen>
     <dimen name="space_between_adresss_and_submit_in_medspravka">20dp</dimen>

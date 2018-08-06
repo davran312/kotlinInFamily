@@ -2,10 +2,10 @@
 
     <!-- Base application theme. -->
     <style name="CustomTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/colorLightBlue</item>
+        <item name="colorPrimary">@color/mainColor</item>
         <item name="colorPrimaryDark">@color/blue</item>
         <item name="android:titleTextStyle">@style/CustomTheme.Text</item>
-        <item name="android:actionBarStyle">@color/colorLightBlue</item>
+        <item name="android:actionBarStyle">@color/mainColor</item>
         <item name="cardViewStyle">@style/CardView</item>
     </style>
     <style name="CustomTheme.Text" parent="@android:style/TextAppearance">
@@ -19,8 +19,8 @@
 
     <style name="infamily" parent="Theme.AppCompat.Light">
         <item name="colorPrimaryDark">@color/blue</item>
-        <item name="colorPrimary">@color/colorLightBlue</item>
-        <item name="android:actionBarStyle">@color/colorLightBlue</item>
+        <item name="colorPrimary">@color/mainColor</item>
+        <item name="android:actionBarStyle">@color/mainColor</item>
         <item name="android:titleTextStyle">@style/CustomTheme.Text</item>
         <item name ="android:titleTextColor" tools:targetApi="m">@color/white</item>
         <item name="cardViewStyle">@style/CardView</item>

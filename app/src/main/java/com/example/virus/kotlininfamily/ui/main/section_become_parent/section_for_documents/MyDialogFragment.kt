@@ -38,9 +38,11 @@ class MyDialogFragment : DialogFragment() {
     private var imagePath: String? = null
     lateinit var v: View
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_dialog, container)
+        showPickDialogItem()
 
         getDataFromBundle()
         init()
@@ -48,6 +50,7 @@ class MyDialogFragment : DialogFragment() {
 
         return v
     }
+
 
     private fun getDataFromBundle() {
 
@@ -88,7 +91,7 @@ class MyDialogFragment : DialogFragment() {
     }
 
     private fun showPickDialogItem() {
-        val args = arrayOf<String>(getString(R.string.pick_photo_from_gallery))
+        val args = arrayOf<String>(getString(R.string.pick_photo_from_gallery),getString(R.string.pick_photo_from_camera))
         AlertDialog.Builder(v.context)
                 .setItems(args, { dialog, w ->
                     if (w == 1)
