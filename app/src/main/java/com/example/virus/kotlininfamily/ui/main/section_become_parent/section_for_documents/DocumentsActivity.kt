@@ -1,30 +1,17 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Html
-import android.util.Log
-import android.view.View
 import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
-import com.example.virus.kotlininfamily.R.id.button_send_request
-import com.example.virus.kotlininfamily.StartApplication
-import com.example.virus.kotlininfamily.models.Categories
 import com.example.virus.kotlininfamily.models.DocumentStatus
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_documents.*
-import okhttp3.ResponseBody
-import java.io.File
 
 
 class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentContract.View {
@@ -173,6 +160,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
         val newFragment = MyDialogFragment.newInstance(documentName!!, map[selectedIndex])
         newFragment!!.show(ft, Const.TAG_FOR_SHOW_DIALOG_FRAGMENT)
+
 
     }
 }

@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_f
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -24,7 +25,6 @@ import com.example.virus.kotlininfamily.data.Permissions
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import com.example.virus.kotlininfamily.utils.error_log.FileLog
-import kotlinx.android.synthetic.main.fragment_dialog.*
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
 import java.io.File
 
@@ -42,14 +42,18 @@ class MyDialogFragment : DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_dialog, container)
-        showPickDialogItem()
-
         getDataFromBundle()
         init()
         checkTheStateOfImagePhoto()
-
         return v
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        showPickDialogItem()
+    }
+
 
 
     private fun getDataFromBundle() {
@@ -65,10 +69,10 @@ class MyDialogFragment : DialogFragment() {
     }
 
     private fun initListeners() {
-
-        v.image_photo.setOnClickListener {
+        v.image_photo.setOnClickListener(){
             showPickDialogItem()
         }
+
 
         v.submit_photo.setOnClickListener {
             if (!TextUtils.isEmpty(imagePath)) {
@@ -90,7 +94,7 @@ class MyDialogFragment : DialogFragment() {
         }
     }
 
-    private fun showPickDialogItem() {
+    public fun showPickDialogItem() {
         val args = arrayOf<String>(getString(R.string.pick_photo_from_gallery),getString(R.string.pick_photo_from_camera))
         AlertDialog.Builder(v.context)
                 .setItems(args, { dialog, w ->
@@ -117,7 +121,7 @@ class MyDialogFragment : DialogFragment() {
             if (requestCode == 989) {
                 imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE, data.data)
             }
-            if (requestCode == 2) {
+            else if (requestCode == 2) {
                 val uri = FileUtils.getPickImageResultUri(v.context, data, imagePath)
                 imagePath = FileUtils.getNormalizedUri(v.context, uri).path
             }
@@ -129,6 +133,7 @@ class MyDialogFragment : DialogFragment() {
         if (Permissions.iPermissionCamera(activity as AppCompatActivity)) {
             imagePath = System.nanoTime().toString()
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, 2)
             val uri = FileUtils.getCaptureImageOutputUri(
                     v.context, imagePath)
             if (uri != null) {
@@ -141,7 +146,7 @@ class MyDialogFragment : DialogFragment() {
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 } else
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
-                startActivityForResult(intent, 2)
+
             }
         }
     }
@@ -156,14 +161,13 @@ class MyDialogFragment : DialogFragment() {
 
     private fun showImage() {
         val exist = File(imagePath).exists()
+
         Glide.with(this)
                 .load(
                         if (exist) imagePath
-                        else R.drawable.default_image256px)
-                .into(v.image_photo)
+                        else R.drawable.grey_tick32px)
+                    .into(v.image_photo)
 
-        if (!exist)
-            FileLog.showError(v.context, "Произошла ошибка")
     }
 
 
