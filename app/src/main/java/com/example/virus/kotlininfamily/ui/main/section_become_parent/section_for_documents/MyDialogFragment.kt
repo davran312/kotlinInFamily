@@ -17,6 +17,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.virus.kotlininfamily.BuildConfig
 import com.example.virus.kotlininfamily.R
@@ -120,15 +121,16 @@ class MyDialogFragment : DialogFragment() {
         if (resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK && data != null) {
             if (requestCode == 989) {
                 imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE, data.data)
+                Toast.makeText(context,imagePath.toString(),Toast.LENGTH_LONG).show()
             }
             else if (requestCode == 2) {
                 val uri = FileUtils.getPickImageResultUri(v.context, data, imagePath)
                 imagePath = FileUtils.getNormalizedUri(v.context, uri).path
+                Toast.makeText(context,imagePath.toString(),Toast.LENGTH_LONG).show()
             }
             showImage()
         }
     }
-
     private fun takePhotoFromCamera() {
         if (Permissions.iPermissionCamera(activity as AppCompatActivity)) {
             imagePath = System.nanoTime().toString()
@@ -146,7 +148,6 @@ class MyDialogFragment : DialogFragment() {
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 } else
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
-
             }
         }
     }
