@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "872829196955",
+    "firebase_url": "https://kotlininfamily.firebaseio.com",
+    "project_id": "kotlininfamily",
+    "storage_bucket": "kotlininfamily.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872829196955:android:01cd433c1099ebb7",
+        "android_client_info": {
+          "package_name": "com.example.virus.kotlininfamily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872829196955-qee5e6krhiugaaemhbru99qlhn9pipq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.virus.kotlininfamily",
+            "certificate_hash": "ab500e4a604170cb4bcb1cce2aa73fd6c0785e3e"
+          }
+        },
+        {
+          "client_id": "872829196955-aadkbrjmr7hqjonu2eg7eg5pu9nahdol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJykASl-oE1QPGCeChIgFgwdvmOhS6lj4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872829196955-aadkbrjmr7hqjonu2eg7eg5pu9nahdol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

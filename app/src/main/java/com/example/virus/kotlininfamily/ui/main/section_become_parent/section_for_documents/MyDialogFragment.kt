@@ -3,6 +3,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_f
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.DialogFragment
+import android.support.v4.app.Fragment
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -38,6 +40,7 @@ class MyDialogFragment : DialogFragment() {
     private var documentName: String? = null
     private var imagePath: String? = null
     lateinit var v: View
+    private var timesOnClick: Int = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -46,14 +49,21 @@ class MyDialogFragment : DialogFragment() {
         getDataFromBundle()
         init()
         checkTheStateOfImagePhoto()
+
         return v
 
     }
 
     override fun onResume() {
+        if(timesOnClick == 0){
+            showPickDialogItem()
+        }
+        timesOnClick++
         super.onResume()
-        showPickDialogItem()
     }
+
+
+
 
 
 
@@ -80,6 +90,7 @@ class MyDialogFragment : DialogFragment() {
                 Log.d("Quantity: ", imagePath)
                 val callingActivity = activity as DocumentsActivity?
                 callingActivity!!.onGetDataFromDialog(imagePath!!)
+                timesOnClick = 0
                 dialog.dismiss()
 
 
