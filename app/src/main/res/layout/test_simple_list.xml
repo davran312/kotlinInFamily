@@ -24,9 +24,10 @@
             <Button
                 android:id="@+id/btn_yes"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_30"
+                android:layout_height="@dimen/size_40"
                 android:layout_weight="1"
                 android:text="@string/test_yes"
+                android:textSize="@dimen/size_20"
                 android:background="@color/blue"
                 android:textColor="@color/white"/>
             <View
@@ -38,7 +39,8 @@
             <Button
                 android:id="@+id/btn_no"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_30"
+                android:layout_height="@dimen/size_40"
+                android:textSize="@dimen/size_20"
                 android:layout_weight="1"
                 android:background="@color/blue"
                 android:textColor="@color/white"

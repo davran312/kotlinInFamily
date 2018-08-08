@@ -141,7 +141,7 @@ class MyDialogFragment : DialogFragment() {
         }
     }
     private fun takePhotoFromCamera() {
-        if (Permissions.iPermissionCamera(activity as AppCompatActivity)) {
+        if (Permissions.iPermissionCamera(activity as AppCompatActivity))    {
             imagePath = System.nanoTime().toString()
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, 2)
