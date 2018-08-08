@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.DocumentStatus
+import com.example.virus.kotlininfamily.models.TokenInfo
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_documents.*
 
 
 class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentContract.View {
+
 
     private var adapter: DocumentAdapter? = null
     var map: HashMap<Int, String> = HashMap()
@@ -90,7 +92,9 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
             Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
         else{
             FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
+            presenter.sendToken(this, this)
             presenter.sendApplication(map, this,this)
+
         }
 
     }

@@ -13,6 +13,7 @@ object Const {
     val ONE_CORRECT_QUESTION_IN_PERCENTAGE = 6.66
     val TAG_FOR_SHOW_DIALOG_FRAGMENT = "dialog"
     val UDAPTE_APPLICATION_STATUS = "update"
+    val REFRESHED_TOKEN_FOR_FIREBASE = "refreshedToken"
     val USER_ID = "userId"
 
 

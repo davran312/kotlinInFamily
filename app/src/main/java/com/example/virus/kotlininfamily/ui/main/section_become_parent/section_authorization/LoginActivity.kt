@@ -62,7 +62,7 @@ class LoginActivity :BaseActivity() {
         authFields.add(name)
         authFields.add(email)
         authFields.add(phone)
-        FileUtils.writeCacheData(this, Const.USER_AUTH_INFORMATION,authFields)
+            FileUtils.writeCacheData(this, Const.USER_AUTH_INFORMATION,authFields)
         Toast.makeText(this,"Данные сохранены",Toast.LENGTH_SHORT).show()
         startActivity(Intent(this,DocumentsActivity::class.java))
     }

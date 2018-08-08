@@ -12,6 +12,6 @@ interface DocumentContract {
     interface Presenter{
         fun sendApplication(map:HashMap<Int,String>,context: Context,activity: DocumentsActivity)
         fun updateApplication(map:HashMap<Int,String>,context:Context,activity: DocumentsActivity)
-
+        fun sendToken(context: Context,activity: DocumentsActivity)
     }
 }

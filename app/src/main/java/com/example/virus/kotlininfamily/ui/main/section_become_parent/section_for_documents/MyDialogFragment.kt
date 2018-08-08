@@ -132,12 +132,10 @@ class MyDialogFragment : DialogFragment() {
         if (resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK && data != null) {
             if (requestCode == 989) {
                 imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE, data.data)
-                Toast.makeText(context,imagePath.toString(),Toast.LENGTH_LONG).show()
             }
             else if (requestCode == 2) {
                 val uri = FileUtils.getPickImageResultUri(v.context, data, imagePath)
                 imagePath = FileUtils.getNormalizedUri(v.context, uri).path
-                Toast.makeText(context,imagePath.toString(),Toast.LENGTH_LONG).show()
             }
             showImage()
         }

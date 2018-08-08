@@ -1,9 +1,6 @@
 package com.example.virus.kotlininfamily.data
 
-import com.example.virus.kotlininfamily.models.Categories
-import com.example.virus.kotlininfamily.models.DocumentStatus
-import com.example.virus.kotlininfamily.models.SpecialistArticle
-import com.example.virus.kotlininfamily.models.SpecialistList
+import com.example.virus.kotlininfamily.models.*
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -26,4 +23,7 @@ interface ForumService {
     fun updateDocumentStatus(@Body file:RequestBody, @Path("id") id: Int, @Header("DEVICE") deviceId:String): Call<DocumentStatus>
     @GET("documents/{id}/")
     fun checkStatus(@Path("id") id: Int, @Header("DEVICE") deviceId:String): Call<DocumentStatus>
+
+    @POST("devices/")
+    fun sendToken(@Body file: RequestBody): Call<TokenInfo>
 }
