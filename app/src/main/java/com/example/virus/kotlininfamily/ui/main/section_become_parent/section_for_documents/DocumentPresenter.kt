@@ -20,46 +20,9 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class DocumentPresenter(val view: DocumentContract.View?) : DocumentContract.Presenter {
-    override fun sendToken(context: Context, activity: DocumentsActivity) {
-        var bodyBuilderForToken = MultipartBody.Builder()
-        bodyBuilderForToken = fillTokenRequest(bodyBuilderForToken, context)
-        bodyBuilderForToken.setType(MultipartBody.FORM)
 
-        StartApplication.service.sendToken(bodyBuilderForToken.build()).enqueue(object : Callback<TokenInfo> {
-            override fun onFailure(call: Call<TokenInfo>?, t: Throwable?) {
-                t!!.printStackTrace()
-            }
 
-            override fun onResponse(call: Call<TokenInfo>?, response: Response<TokenInfo>?) {
-                if (isViewAttached()) {
-                    if (response!!.isSuccessful && response.body() != null) {
-                        Log.d("________token", response.message())
-                    } else {
-                        view!!.onError("Error on send token")
-                    }
-                    view!!.hideProgress()
-                }
-            }
 
-        })
-
-    }
-
-    private fun fillTokenRequest(bodyBuilderForToken: MultipartBody.Builder, context: Context): MultipartBody.Builder {
-        val authInfoList: ArrayList<String> = FileUtils.readCacheData(context, Const.USER_AUTH_INFORMATION)
-        val token: String = FileUtils.readCacheData(context,Const.REFRESHED_TOKEN_FOR_FIREBASE)
-        val name = authInfoList[0]
-        val deviceId = authInfoList[2]
-
-        bodyBuilderForToken.addFormDataPart("name",name)
-        bodyBuilderForToken.addFormDataPart("registration_id",token)
-        bodyBuilderForToken.addFormDataPart("device_id", deviceId)
-        bodyBuilderForToken.addFormDataPart("type", "android")
-        
-        return bodyBuilderForToken
-
-        
-    }
 
 
     override fun updateApplication(map: HashMap<Int, String>, context: Context, activity: DocumentsActivity) {

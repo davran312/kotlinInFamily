@@ -13,14 +13,22 @@ import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity :BaseActivity() {
+class LoginActivity :BaseActivity(),LoginContract.View {
+    override fun onError(message: String?) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
 
+    }
+
+    lateinit var presenter: LoginPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
+
+        presenter = LoginPresenter(this)
         btn_auth.setOnClickListener {
             if (checkInputFieldValues()) {
+
                 finish()
             }
         }
@@ -52,7 +60,8 @@ class LoginActivity :BaseActivity() {
             return false
         }
         else{
-        saveAuthFieldToCache(name,mail,phone)
+            saveAuthFieldToCache(name,mail,phone)
+            presenter.sendToken(this,this)
         return true
         }
     }
@@ -62,8 +71,10 @@ class LoginActivity :BaseActivity() {
         authFields.add(name)
         authFields.add(email)
         authFields.add(phone)
+
             FileUtils.writeCacheData(this, Const.USER_AUTH_INFORMATION,authFields)
         Toast.makeText(this,"Данные сохранены",Toast.LENGTH_SHORT).show()
         startActivity(Intent(this,DocumentsActivity::class.java))
+
     }
 }

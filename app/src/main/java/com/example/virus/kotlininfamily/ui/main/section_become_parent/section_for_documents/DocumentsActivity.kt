@@ -92,7 +92,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
             Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
         else{
             FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
-            presenter.sendToken(this, this)
+
             presenter.sendApplication(map, this,this)
 
         }
