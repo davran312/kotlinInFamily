@@ -51,6 +51,8 @@ class LoginPresenter(val view: LoginContract.View?) : LoginContract.Presenter {
         bodyBuilderForToken.addFormDataPart("registration_id",token)
         bodyBuilderForToken.addFormDataPart("device_id", deviceId)
         bodyBuilderForToken.addFormDataPart("type", "android")
+        bodyBuilderForToken.addFormDataPart("active", "true")
+
 
         return bodyBuilderForToken
 

@@ -71,13 +71,14 @@ class DocumentPresenter(val view: DocumentContract.View?) : DocumentContract.Pre
             StartApplication.service.sendApplication(bodyBuilder.build()).enqueue(object : Callback<DocumentStatus> {
                 override fun onResponse(call: Call<DocumentStatus>?, response: Response<DocumentStatus>?) {
                     if (isViewAttached()) {
-                        if (response!!.isSuccessful && response.body() != null) {
-                            view!!.onSuccess(response!!.body()!!)
+                        if (response?.isSuccessful!!) {
+                            view!!.onSuccess(response.body()!!)
                             view!!.onSuccessStatus(response.body()!!)
                             Log.d("___________", response.body().toString())
                             map.clear()
                             activity.finish()
                         } else {
+                            Log.d("_______error", response.body()?.id.toString())
                             view!!.onError("Error")
                         }
                         view.hideProgress()
