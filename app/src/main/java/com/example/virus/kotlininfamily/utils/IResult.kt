@@ -4,6 +4,6 @@ import com.example.virus.kotlininfamily.ui.main.section_become_parent.section_fo
 
 interface IResult<T> {
 
-    fun onSuccess(result: T)
+    fun  onSuccess(result: T)
     fun onError(message: String?)
 }

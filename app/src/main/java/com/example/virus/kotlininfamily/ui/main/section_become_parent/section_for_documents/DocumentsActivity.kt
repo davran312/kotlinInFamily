@@ -86,16 +86,16 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     fun sendApplication() {
 
         val list: Array<out String>? = (resources.getStringArray(R.array.documents_list))
-//        if (map.size == 0)
-//            Toast.makeText(this, "Заявка пуста", Toast.LENGTH_LONG).show()
-//        else if (map.size < list!!.size)
-//            Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
-//        else{
+        if (map.size == 0)
+            Toast.makeText(this, "Заявка пуста", Toast.LENGTH_LONG).show()
+        else if (map.size < list!!.size)
+            Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
+        else{
             FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
 
             presenter.sendApplication(map, this,this)
 
-//        }
+        }
 
     }
 
