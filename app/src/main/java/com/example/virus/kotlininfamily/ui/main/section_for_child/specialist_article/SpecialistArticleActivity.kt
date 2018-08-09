@@ -40,7 +40,7 @@ class SpecialistArticleActivity : BaseActivity(), SpecialistArticleContract.View
 
     private fun initListeners() {
         phone.setOnClickListener {
-            if (specialistArticle.contacts!![2].value != null) {
+            if (specialistArticle.contacts!!.size > 2 && specialistArticle.contacts!![2].value != null) {
                 dialContactPhone(specialistArticle.contacts!![2].value.toString())
             } else {
                 Toast.makeText(this, "Нет номера", Toast.LENGTH_SHORT).show()
@@ -68,7 +68,9 @@ class SpecialistArticleActivity : BaseActivity(), SpecialistArticleContract.View
 
         tw_schedule.text = specialistArticle.schedule
         tw_descrption.text = specialistArticle.description
-        tw_contact_phone.text = specialistArticle.contacts?.get(2)?.value
+        if (specialistArticle.contacts!!.size > 2) {
+            tw_contact_phone.text = specialistArticle.contacts?.get(2)?.value
+        }
         labelLocation = specialistArticle.address.toString()
         long = specialistArticle.longitude.toString()
         lat = specialistArticle.latitude.toString()

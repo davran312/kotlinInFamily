@@ -29,16 +29,16 @@ class TestAdapter (private var list: Array<String>,
         fun bind(position:Int){
             itemView.titleView.text = list.get(position)
 
-            itemView.btn_yes.setBackgroundColor(
+            itemView.btn_yes.setBackgroundResource(
                     if(map.containsKey(position) && map[position]!!.isResult!!)
-                         Color.parseColor("#d321f3")
+                         R.color.mainColor
                     else
-                        Color.parseColor("#1f000000"))
-            itemView.btn_no.setBackgroundColor(
+                        R.color.shadow_view_foreground_color_dark)
+            itemView.btn_no.setBackgroundResource(
                     if(map.containsKey(position) && !map[position]!!.isResult!!)
-                        Color.parseColor("#d321f3")
+                        R.color.mainColor
                     else
-                        Color.parseColor("#1f000000"))
+                        R.color.shadow_view_foreground_color_dark)
 
             itemView.btn_yes.tag = position
             itemView.btn_yes.setOnClickListener{v->
