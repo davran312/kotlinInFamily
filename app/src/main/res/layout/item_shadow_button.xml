@@ -8,7 +8,7 @@
     android:elevation="5dp"
     android:padding="@dimen/size_10"
     app:cornerRadius="@dimen/size_16"
-    app:shadowColor="@color/mainColor"
+    app:shadowColor="@color/primaryColor"
     app:shadowDy="10"
     app:shadowMargin="@dimen/size_12"
     app:shadowRadius="@dimen/size_20">
@@ -19,7 +19,7 @@
         android:gravity="center"
         android:minHeight="@dimen/size_60"
         tools:text="Infamily"
-        android:textColor="@color/blue"
+        android:textColor="@color/primaryColorDarker"
         android:textSize="@dimen/size_14"
         app:layout_gravity="center"
         tools:ignore="SpUsage" />

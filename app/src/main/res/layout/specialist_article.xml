@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_20"
                 android:text="@string/contacts"
-                android:textColor="@color/blue"
+                android:textColor="@color/primaryColorDarker"
                 android:textSize="@dimen/size_20"
                 android:textStyle="bold" />
 
@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_20"
                 android:text="@string/address"
-                android:textColor="@color/blue"
+                android:textColor="@color/primaryColorDarker"
                 android:textSize="@dimen/size_20"
                 android:textStyle="bold" />
 
@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_20"
             android:text="@string/e_mail_text"
-            android:textColor="@color/blue"
+            android:textColor="@color/primaryColorDarker"
             android:textSize="@dimen/size_20"
             android:textStyle="bold" />
 

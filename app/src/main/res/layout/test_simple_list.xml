@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:text="@string/test_yes"
                 android:textSize="@dimen/size_20"
-                android:background="@color/blue"
+                android:background="@color/primaryColorDarker"
                 android:textColor="@color/white"/>
             <View
                 android:layout_width="2dp"
@@ -42,7 +42,7 @@
                 android:layout_height="@dimen/size_40"
                 android:textSize="@dimen/size_20"
                 android:layout_weight="1"
-                android:background="@color/blue"
+                android:background="@color/primaryColorDarker"
                 android:textColor="@color/white"
                 android:text="@string/test_no"/>
 

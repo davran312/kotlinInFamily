@@ -13,14 +13,15 @@
     <color name="shadow_view_foreground_color_dark">#1f000000</color>
     <color name="bg_light">#fafafa</color>
 
-    <color name="mainColor">#E1BEE7</color>
+    <color name="primaryColor">#b165be</color>
+    <color name="primaryColorDarker">#b165be</color>
+
     <color name="white">#ffffff</color>
     <!--Dosya values-->
     <color name="text_info">#585858</color>
     <color name="red">#ff0000</color>
     <color name="content_of_article_color">#6c6c6c</color>
     <color name="colorBlack">#212121</color>
-    <color name="blue">#E1BEE7</color>
     <color name="hint_color">#b8b8b8</color>
     <color name="color_light_green">#8BC34A</color>
     <color name="black">#590655</color>

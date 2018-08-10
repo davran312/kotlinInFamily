@@ -1,8 +1,6 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_test
 
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,12 +29,12 @@ class TestAdapter (private var list: Array<String>,
 
             itemView.btn_yes.setBackgroundResource(
                     if(map.containsKey(position) && map[position]!!.isResult!!)
-                         R.color.mainColor
+                         R.color.primaryColor
                     else
                         R.color.shadow_view_foreground_color_dark)
             itemView.btn_no.setBackgroundResource(
                     if(map.containsKey(position) && !map[position]!!.isResult!!)
-                        R.color.mainColor
+                        R.color.primaryColor
                     else
                         R.color.shadow_view_foreground_color_dark)
 

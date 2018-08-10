@@ -4,7 +4,7 @@
 
     <solid android:color="@color/bg_light" />
     <stroke
-        android:color="@color/mainColor"
+        android:color="@color/primaryColor"
         android:width="5dp"/>
 
     <corners
