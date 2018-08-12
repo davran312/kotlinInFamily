@@ -30,6 +30,7 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
                 Toast.makeText(this,"Вы ответили не на все вопросы",Toast.LENGTH_LONG).show()
             }
         }
+        recyclerView.isNestedScrollingEnabled = false
         recyclerView.adapter = adapter
 
 

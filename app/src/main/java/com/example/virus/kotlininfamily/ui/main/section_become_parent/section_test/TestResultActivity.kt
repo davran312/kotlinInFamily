@@ -40,7 +40,7 @@ class TestResultActivity : BaseActivity() {
         } else if (percentageOfCorrectAnswers <= 100 && percentageOfCorrectAnswers >= 70) {
             result_text_view.text =  getString(R.string.normal_result, percentageOfCorrectAnswers.toString())
         } else if (percentageOfCorrectAnswers < 70) {
-            result_text_view.textSize = 14F
+            result_text_view.textSize = 12F
             result_text_view.text =  getString(R.string.bad_result, percentageOfCorrectAnswers.toString())
         }
     }

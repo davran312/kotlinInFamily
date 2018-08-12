@@ -406,6 +406,8 @@
     <string name="your_result_text">Ваш результат:</string>
     <string name="result_submit_text">Подтвердить</string>
     <string name="default_text">Нету</string>
+    <string name="channel_name">Documents</string>
+    <string name="channel_description">Infamily documents</string>
 
     <string-array name="noAnswerIndexesAreRight">
         <item>2</item>

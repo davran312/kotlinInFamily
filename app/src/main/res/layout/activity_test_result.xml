@@ -80,7 +80,7 @@
 
             android:id="@+id/btn_submit_result"
             style="@style/submitButton"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:layout_marginBottom="@dimen/size_15"
             android:text="@string/result_submit_text"
             android:textColor="@color/white" />

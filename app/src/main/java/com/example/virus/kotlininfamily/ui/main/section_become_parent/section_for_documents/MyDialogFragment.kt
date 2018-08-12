@@ -175,7 +175,7 @@ class MyDialogFragment : DialogFragment() {
         Glide.with(this)
                 .load(
                         if (exist) imagePath
-                        else R.drawable.grey_tick32px)
+                        else R.drawable.default_image256px)
                     .into(v.image_photo)
 
     }
