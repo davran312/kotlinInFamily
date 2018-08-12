@@ -5,6 +5,7 @@ import com.example.virus.kotlininfamily.data.ForumService
 import com.example.virus.kotlininfamily.data.Network
 import com.example.virus.kotlininfamily.utils.ConnectionsManager
 import com.example.virus.kotlininfamily.utils.error_log.FileLog
+import com.facebook.drawee.backends.pipeline.Fresco
 import java.io.File
 
 class StartApplication : Application(){
@@ -20,6 +21,7 @@ class StartApplication : Application(){
         INSTANCE = this
         service = Network.initService(BASE_URL)
         ConnectionsManager.getInstance()
+        Fresco.initialize(this)
     }
     fun getFilesDirFixed(): File {
         for(a in 0..9){

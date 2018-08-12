@@ -1,14 +1,20 @@
 package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_for_documents
 
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
@@ -29,7 +35,11 @@ import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import com.example.virus.kotlininfamily.utils.error_log.FileLog
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -40,7 +50,9 @@ class MyDialogFragment : DialogFragment() {
     private var documentName: String? = null
     private var imagePath: String? = null
     lateinit var v: View
+    private var photoFile: File? = null
     private var timesOnClick: Int = 0
+    var photoFromCameraNumber: Int = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -104,6 +116,7 @@ class MyDialogFragment : DialogFragment() {
         if (!TextUtils.isEmpty(imagePath)) {
             showImage()
         }
+
     }
 
     public fun showPickDialogItem() {
@@ -127,25 +140,36 @@ class MyDialogFragment : DialogFragment() {
             takePhotoFromCamera()
     }
 
+    @TargetApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_CANCELED && resultCode == Activity.RESULT_OK && data != null) {
             if (requestCode == 989) {
                 imagePath = FileUtils.getImagePathFromInputStreamUri(StartApplication.INSTANCE, data.data)
+                Toast.makeText(context, imagePath.toString(), Toast.LENGTH_LONG).show()
+
             }
             else if (requestCode == 2) {
+//                v.image_photo.setImageBitmap(data.extras.get("data") as Bitmap)
+//                FileUtils.writeCacheData(context,"imageFromCamera",data.extras.get("data") as Bitmap)
                 val uri = FileUtils.getPickImageResultUri(v.context, data, imagePath)
                 imagePath = FileUtils.getNormalizedUri(v.context, uri).path
+
+
+
+                Toast.makeText(context, imagePath.toString(), Toast.LENGTH_LONG).show()
+
             }
             showImage()
         }
     }
     private fun takePhotoFromCamera() {
-        if (Permissions.iPermissionCamera(activity as AppCompatActivity))    {
-            imagePath = System.nanoTime().toString()
+
+        if (Permissions.iPermissionCamera(activity as AppCompatActivity)){
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, 2)
-            val uri = FileUtils.getCaptureImageOutputUri(
+            if (intent.resolveActivity(getActivity()!!.packageManager)!=null){
+                imagePath=System.nanoTime().toString()
+                val uri = FileUtils.getCaptureImageOutputUri(
                     v.context, imagePath)
             if (uri != null) {
                 val file = File(uri.path)
@@ -158,7 +182,31 @@ class MyDialogFragment : DialogFragment() {
                 } else
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
             }
-        }
+
+                    startActivityForResult(intent, 2)}
+            }
+
+
+
+//        if (Permissions.iPermissionCamera(activity as AppCompatActivity))    {
+//            imagePath = System.nanoTime().toString()
+//            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//
+//            val uri = FileUtils.getCaptureImageOutputUri(
+//                    v.context, imagePath)
+//            if (uri != null) {
+//                val file = File(uri.path)
+//                if (Build.VERSION.SDK_INT >= 24) {
+//                    intent.putExtra(MediaStore.EXTRA_OUTPUT,
+//                            FileProvider.getUriForFile(
+//                                    v.context, BuildConfig.APPLICATION_ID + ".provider", file))
+//                    intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+//                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//                } else
+//                    intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+//            }
+//            startActivityForResult(intent, 2)
+//        }
     }
 
     private fun takePhotoFromGallery() {
@@ -171,13 +219,7 @@ class MyDialogFragment : DialogFragment() {
 
     private fun showImage() {
         val exist = File(imagePath).exists()
-
-        Glide.with(this)
-                .load(
-                        if (exist) imagePath
-                        else R.drawable.grey_tick32px)
-                    .into(v.image_photo)
-
+       v.image_photo.setImageURI(Uri.parse(imagePath))
     }
 
 

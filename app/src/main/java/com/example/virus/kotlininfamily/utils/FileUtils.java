@@ -166,7 +166,7 @@ public class FileUtils {
         Uri outputFileUri = null;
         File getImage = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         if (getImage != null) {
-            outputFileUri = Uri.fromFile(new File(getImage.getPath(), fileName + ".jpeg"));
+            outputFileUri = Uri.fromFile(new File(getImage.getPath(), fileName + ".jpg"));
         }
         return outputFileUri;
     }
