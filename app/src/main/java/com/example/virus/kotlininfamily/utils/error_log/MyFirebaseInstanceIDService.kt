@@ -12,7 +12,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 /**
  * Created by admin on 8/7/18.
  */
-class MyFirebaseInstanceIDService : FirebaseInstanceIdService(){
+class   MyFirebaseInstanceIDService : FirebaseInstanceIdService(){
     override fun onTokenRefresh() {
         super.onTokenRefresh()
         val refreshedToken = FirebaseInstanceId.getInstance().token
