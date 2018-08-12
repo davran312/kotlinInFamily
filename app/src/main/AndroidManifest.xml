@@ -75,7 +75,7 @@
         <service
             android:name=".utils.error_log.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase."/>
             </intent-filter>
         </service>
 

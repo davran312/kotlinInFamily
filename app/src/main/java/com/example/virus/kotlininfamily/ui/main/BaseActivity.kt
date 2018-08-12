@@ -15,6 +15,7 @@ open class BaseActivity : AppCompatActivity(){
         super.setContentView(layoutResId)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.left_arrow)
 
     }
     open fun showProgress(){
