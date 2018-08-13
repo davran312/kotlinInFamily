@@ -4,6 +4,7 @@ package com.example.virus.kotlininfamily.ui.main.section_become_parent.section_t
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
@@ -40,7 +41,7 @@ class TestResultActivity : BaseActivity() {
         } else if (percentageOfCorrectAnswers <= 100 && percentageOfCorrectAnswers >= 70) {
             result_text_view.text =  getString(R.string.normal_result, percentageOfCorrectAnswers.toString())
         } else if (percentageOfCorrectAnswers < 70) {
-            result_text_view.textSize = 14F
+            result_text_view.textSize = 12F
             result_text_view.text =  getString(R.string.bad_result, percentageOfCorrectAnswers.toString())
         }
     }
@@ -73,8 +74,8 @@ class TestResultActivity : BaseActivity() {
     }
 
     private fun convertToPercentage() {
-
-        percentageOfCorrectAnswers = (ONE_CORRECT_QUESTION_IN_PERCENTAGE * correctAnswers).roundToInt()
+        var oneCorrectAnswerInPercentage = (100.0 / hashMap!!.size)
+        percentageOfCorrectAnswers = (oneCorrectAnswerInPercentage * correctAnswers).roundToInt()
 
     }
 

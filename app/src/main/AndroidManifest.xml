@@ -7,14 +7,15 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true"
-        />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:name=".StartApplication"
@@ -28,9 +29,9 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/family_icon_for_notification" />
-        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/primaryColor" />
-
 
         <activity
             android:name=".ui.main.MainMenuActivity"
@@ -41,16 +42,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.section_for_parent.ParentActivity"/>
-        <activity android:name=".ui.main.section_for_child.specialist_article.SpecialistArticleActivity"/>
-        <activity android:name=".ui.main.section_for_child.specialistNames.SpecialistNamesActivity"/>
-        <activity android:name=".ui.main.section_for_child.ChildActivity"/>
-        <activity android:name=".ui.main.section_become_parent.section_test.TestResultActivity"/>
-        <activity android:name="com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity"/>
+        <activity android:name=".ui.main.section_for_parent.ParentActivity" />
+        <activity android:name=".ui.main.section_for_child.specialist_article.SpecialistArticleActivity" />
+        <activity android:name=".ui.main.section_for_child.specialistNames.SpecialistNamesActivity" />
+        <activity android:name=".ui.main.section_for_child.ChildActivity" />
+        <activity android:name=".ui.main.section_become_parent.section_test.TestResultActivity" />
+        <activity android:name="com.example.virus.kotlininfamily.ui.main.section_for_child.specialists.SpecialistActivity" />
         <activity android:name=".ui.main.section_for_child.categories.CategoriesActivity" />
         <activity android:name=".ui.main.section_become_parent.BecomeParentActivity" />
-        <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentStatusActivity"
-            android:theme="@style/CustomTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.main.section_become_parent.section_for_documents.DocumentStatusActivity"
+            android:theme="@style/CustomTheme.NoActionBar" />
         <activity android:name=".ui.main.section_become_parent.section_information.InformationActivity" />
         <activity android:name=".ui.main.section_become_parent.section_for_documents.DocumentsActivity" />
         <activity android:name=".ui.main.section_become_parent.section_authorization.LoginActivity"/>
@@ -66,10 +68,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-        <service
-            android:name=".utils.error_log.MyFirebaseInstanceIDService">
+
+        <service android:name=".utils.error_log.MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".utils.error_log.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

@@ -5,16 +5,12 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
@@ -37,13 +33,7 @@ import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import com.example.virus.kotlininfamily.utils.error_log.FileLog
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
-import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.IOException
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
-
 
 /**
  * Created by admin on 7/31/18.
@@ -53,9 +43,7 @@ class MyDialogFragment : DialogFragment() {
     private var documentName: String? = null
     private var imagePath: String? = null
     lateinit var v: View
-    private var photoFile: File? = null
     private var timesOnClick: Int = 0
-    var photoFromCameraNumber: Int = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -115,7 +103,6 @@ class MyDialogFragment : DialogFragment() {
         if (!TextUtils.isEmpty(imagePath)) {
             showImage()
         }
-
     }
 
     public fun showPickDialogItem() {
@@ -195,7 +182,8 @@ class MyDialogFragment : DialogFragment() {
         if(exist)
             v?.image_photo.setImageURI(Uri.parse(imagePath))
 
-}
+    v.image_photo.setImageURI(Uri.parse(imagePath))
+    }
 
 
     companion object {
