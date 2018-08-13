@@ -35,6 +35,7 @@
 
         <activity
             android:name=".ui.main.MainMenuActivity"
+            android:theme="@style/CustomTheme.NoActionBar"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
