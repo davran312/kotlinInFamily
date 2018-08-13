@@ -8,6 +8,7 @@ import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.TestQuestion
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
 import kotlinx.android.synthetic.main.activity_test.*
+import java.sql.Array
 
 class TestActivity : BaseActivity() , TestAdapter.Listener{
     lateinit var adapter: TestAdapter
@@ -21,7 +22,7 @@ class TestActivity : BaseActivity() , TestAdapter.Listener{
 
         adapter = TestAdapter(questions,map,this)
         btn_result.setOnClickListener{
-            if(adapter.map.size == 15) {
+            if(adapter.map.size == questions!!.size) {
                 val intent = Intent(this, TestResultActivity::class.java)
                 intent.putExtra("map", adapter.map)
                 finish()
