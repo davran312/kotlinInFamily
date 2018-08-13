@@ -19,7 +19,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
 
     private var adapter: DocumentAdapter? = null
-    var map: HashMap<Int, String> = HashMap()
+    var map: HashMap<Int, String>? = HashMap()
     private var selectedIndex: Int = -1
     private  var updateCode: Int = 0
 
@@ -60,7 +60,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     }
 
     private fun updateApplication() {
-        presenter.updateApplication(map,this,this)
+        presenter.updateApplication(map!!,this,this)
         FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
     }
 
@@ -76,9 +76,11 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     }
 
     private fun initAdapter() {
-        map = FileUtils.readCacheData(this,Const.CACHE_URI_DIRECTORY)
+        val tempMap:HashMap<Int,String>? = FileUtils.readCacheData(this,Const.CACHE_URI_DIRECTORY)
+        if(tempMap != null)
+            map = tempMap
         adapter = DocumentAdapter(resources.getStringArray
-        (com.example.virus.kotlininfamily.R.array.documents_list), map, this)
+        (com.example.virus.kotlininfamily.R.array.documents_list), map!!, this)
         recyclerViewOfDocuments.addItemDecoration(DividerItemDecoration(this))
         recyclerViewOfDocuments.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         recyclerViewOfDocuments.adapter = adapter
@@ -87,14 +89,14 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     fun sendApplication() {
 
         val list: Array<out String>? = (resources.getStringArray(R.array.documents_list))
-        if (map.size == 0)
+        if (map!!.size == 0)
             Toast.makeText(this, "Заявка пуста", Toast.LENGTH_LONG).show()
-        else if (map.size < list!!.size)
+        else if (map!!.size < list!!.size)
             Toast.makeText(this, "Заполните недостающие поля", Toast.LENGTH_LONG).show()
         else{
             FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
 
-            presenter.sendApplication(map, this,this)
+            presenter.sendApplication(map!!, this,this)
 
         }
 
@@ -110,8 +112,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
     fun onGetDataFromDialog(imagePath: String) {
         if (imagePath != null) {
-            if (selectedIndex != -1 && !map.containsKey(selectedIndex)) map.put(selectedIndex, imagePath)
-            else if (map.containsKey(selectedIndex)) map[selectedIndex] = imagePath
+            if (selectedIndex != -1 && !map!!.containsKey(selectedIndex)) map!!.put(selectedIndex, imagePath)
+            else if (map!!.containsKey(selectedIndex)) map!![selectedIndex] = imagePath
             adapter?.setFilledIndex(selectedIndex, imagePath)
         }
     }
@@ -127,7 +129,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         val list:ArrayList<Boolean> = getList(result)
         for(i in 0 until list.size){
             if(list.get(i))
-                map.remove(i)
+                map!!.remove(i)
         }
         FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
 
@@ -163,7 +165,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         ft.addToBackStack(null)
 
 
-        val newFragment = MyDialogFragment.newInstance(documentName!!, map[selectedIndex])
+        val newFragment = MyDialogFragment.newInstance(documentName!!, map!![selectedIndex])
         newFragment!!.show(ft, Const.TAG_FOR_SHOW_DIALOG_FRAGMENT)
 
 

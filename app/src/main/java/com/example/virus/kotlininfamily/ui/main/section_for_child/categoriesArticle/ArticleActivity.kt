@@ -35,9 +35,6 @@ class ArticleActivity : BaseActivity() {
     }
     private fun setActionBarTitle() {
        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setBackgroundDrawable( ColorDrawable(Color.parseColor("#ffffff")))
-        val backArrow:Drawable = resources.getDrawable(R.drawable.back_button)
-        supportActionBar?.setHomeAsUpIndicator(backArrow)
 
     }
 }

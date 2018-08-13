@@ -4,37 +4,33 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:gravity="center_horizontal"
-    android:padding="15dp"
+    android:padding="@dimen/size_10"
+    android:layout_marginTop="@dimen/size_15"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="253dp"
-        android:layout_height="37dp"
+        android:layout_width="166dp"
+        android:layout_height="27dp"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/size_5"
         android:fontFamily="@font/noto_sans_regular"
         android:scaleType="centerCrop"
         android:src="@drawable/in_family"
         android:text="@string/main_menu"
         android:textSize="@dimen/size_30"
         android:textStyle="bold" />
-    <TextView
-        android:fontFamily="@font/times_new_roman"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:text="@string/main_menu"/>
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/recyclerViewMain"
-        android:layout_width="334dp"
+
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_40"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/size_8"
+        android:paddingBottom="@dimen/size_10"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/main_menu_item_category" />
 
