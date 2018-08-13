@@ -76,6 +76,7 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     }
 
     private fun initAdapter() {
+        map = FileUtils.readCacheData(this,Const.CACHE_URI_DIRECTORY)
         adapter = DocumentAdapter(resources.getStringArray
         (com.example.virus.kotlininfamily.R.array.documents_list), map, this)
         recyclerViewOfDocuments.addItemDecoration(DividerItemDecoration(this))

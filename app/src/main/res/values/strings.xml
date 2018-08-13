@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">INFAMILY</string>
+    <string name="app_name">InFamily</string>
     <string name="request_setting_permissions">Вы отключили некоторые разрешения, включите их в настройках</string>
 
 
@@ -12,9 +12,9 @@
     <string name="shedule">График</string>
     <string name="info">Описание</string>
 
-    <string name="category1">Хотите стать приемным родителем/опекуном?</string>
-    <string name="category2">У вас есть приемный ребенок?</string>
-    <string name="category3">Вы являетесь приемным родителем/опекуном?</string>
+    <string name="category1">Хотите стать родителем?</string>
+    <string name="category2">О приёмных детях</string>
+    <string name="category3">Приемным родителям</string>
     <string name="section_information">Информация об опекунстве/усыновлении</string>
     <string name="section_documents">Процесс сбора документов</string>
     <string name="section_test_ready">Тест. Готовы ли вы?</string>
@@ -384,7 +384,7 @@
     <string name="error_field_required">Необходимо для заполнения</string>
 
     <string name="prompt_name">Имя</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Загрузка...</string>
     <string name="step_by_step">Пошаговая инструкция</string>
     <string name="send_application">Оставить Заявку</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email

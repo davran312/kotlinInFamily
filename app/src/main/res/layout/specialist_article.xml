@@ -105,14 +105,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:orientation="vertical">
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginRight="@dimen/size_20"
+            android:layout_marginLeft="@dimen/size_20"
             android:orientation="vertical">
 
             <TextView
@@ -131,18 +131,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/size_15" />
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,7 +139,6 @@
                 android:textColor="@color/primaryColorDarker"
                 android:textSize="@dimen/size_20"
                 android:textStyle="bold" />
-
             <TextView
                 android:textAlignment="center"
                 android:id="@+id/tw_adress"
@@ -160,32 +147,33 @@
                 android:textSize="@dimen/size_15"
 
                 />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_20"
+                android:text="@string/e_mail_text"
+                android:textColor="@color/primaryColorDarker"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/tw_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_text"
+                android:textSize="@dimen/size_15" />
+
+
 
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <TextView
+</android.support.v4.widget.NestedScrollView>
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_20"
-            android:text="@string/e_mail_text"
-            android:textColor="@color/primaryColorDarker"
-            android:textSize="@dimen/size_20"
-            android:textStyle="bold" />
 
-        <TextView
-            android:textAlignment="center"
-            android:id="@+id/tw_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/default_text"
-            android:textSize="@dimen/size_15" />
+
     </LinearLayout>
+
 
 
 </LinearLayout>

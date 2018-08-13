@@ -76,7 +76,7 @@ public class FileUtils {
         InputStream inputStream = null;
         String filePath = null;
 
-        if (uri.getAuthority() != null) {
+        if (uri != null) {
             try {
                 inputStream = context.getContentResolver().openInputStream(uri); // context needed
                 File photoFile = createTemporalFileFrom(context, inputStream);

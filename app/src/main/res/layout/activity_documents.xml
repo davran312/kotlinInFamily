@@ -10,7 +10,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewOfDocuments"
         android:layout_width="match_parent"
-        android:layout_height="463dp"
+        android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/item_for_document_activity" />
@@ -21,11 +21,11 @@
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:textAlignment="center"
         android:layout_marginBottom="@dimen/size_15"
-        android:textSize="@dimen/size_15"
         android:text="Отправить Заявку"
-        android:textColor="@color/white" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_15" />
 
 
 
