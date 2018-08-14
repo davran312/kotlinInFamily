@@ -79,9 +79,9 @@ class BecomeParentActivity: BaseActivity(),BecomeParentAdapter.Listener,BecomePa
             intent.putExtra("buttonText","Переотправить")
             intent.putExtra("statusBody",response)
 
+
         }
         FileUtils.writeCacheData(this,"status",response.status)
-        finish()
         startActivity(intent)
 
 

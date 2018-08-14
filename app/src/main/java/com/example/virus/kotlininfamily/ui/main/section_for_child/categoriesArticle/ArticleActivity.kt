@@ -35,6 +35,8 @@ class ArticleActivity : BaseActivity() {
     }
     private fun setActionBarTitle() {
        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
+
 
     }
 }

@@ -137,6 +137,7 @@ class MyDialogFragment : DialogFragment() {
                     val uri = FileUtils.getPickImageResultUri(context, data, imagePath)
                     val file = FileUtils.getNormalizedUri(context, uri)
                     val path = Compressor.getDefault(context).compressToFile(File(file.path)).path
+                    imagePath = path
                     showImage(path)
                 }
                 Const.GALLERY -> {

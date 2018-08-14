@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Html
+import android.util.Log
 import android.widget.Toast
 import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
@@ -21,7 +22,6 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
     private var adapter: DocumentAdapter? = null
     var map: HashMap<Int, String>? = HashMap()
     private var selectedIndex: Int = -1
-    private  var updateCode: Int = 0
 
     private lateinit var presenter: DocumentPresenter
     private var documentName: String? = null
@@ -42,8 +42,10 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         initListeners()
     }
     override fun onSuccessStatus(response:DocumentStatus) {
+        checkDocumentCorrectness(response)
         FileUtils.writeCacheData(this,Const.UDAPTE_APPLICATION_STATUS,response.status)
     }
+
 
 
     private fun initListeners() {
@@ -58,27 +60,54 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
            }
        }
     }
+    public  fun checkDocumentCorrectness( result: DocumentStatus) {
+        val map:HashMap<Int,String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
+        val list:ArrayList<Boolean> = getList(result)
+
+        for(i in 0 until list.size){
+            if(!list.get(i)) {
+                map!!.remove(i)
+            }
+
+        }
+        FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
+
+    }
+    public fun getList(result: DocumentStatus): ArrayList<Boolean> {
+        Log.d("result",result.toString())
+        val list:ArrayList<Boolean> = ArrayList()
+        list.add(result.family_correct)
+        list.add(result.income_correct)
+        list.add(result.residence_correct)
+        list.add(result.criminal_correct)
+        list.add(result.health_correct)
+        list.add(result.job_correct)
+        return list
+    }
+
 
     private fun updateApplication() {
-        presenter.updateApplication(map!!,this,this)
-        FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
+        if(map?.size != 6 )
+            Toast.makeText(this,"Заполните все документы для переотправки",Toast.LENGTH_SHORT).show()
+        else {
+            presenter.updateApplication(map!!, this, this)
+            FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
+        }
     }
 
 
     private fun initVariables() {
         presenter = DocumentPresenter(this)
         if(FileUtils.readCacheData(this,Const.USER_ID) as Int? != null){
-        val temp: HashMap<Int, String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
-            map = temp!!
+
 
 
         }
     }
 
     private fun initAdapter() {
-        val tempMap:HashMap<Int,String>? = FileUtils.readCacheData(this,Const.CACHE_URI_DIRECTORY)
-        if(tempMap != null)
-            map = tempMap
+        val temp: HashMap<Int, String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
+        map = temp!!
         adapter = DocumentAdapter(resources.getStringArray
         (com.example.virus.kotlininfamily.R.array.documents_list), map!!, this)
         recyclerViewOfDocuments.addItemDecoration(DividerItemDecoration(this))
@@ -125,31 +154,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
     }
 
-    private fun checkDocumentCorrectness( result: DocumentStatus) {
-        val list:ArrayList<Boolean> = getList(result)
-        for(i in 0 until list.size){
-            if(list.get(i))
-                map!!.remove(i)
-        }
-        FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
-
-    }
-    private fun getList(result: DocumentStatus): ArrayList<Boolean> {
-        val list:ArrayList<Boolean> = ArrayList()
-        list.add(result.family_correct)
-        list.add(result.income_correct)
-        list.add(result.residence_correct)
-        list.add(result.criminal_correct)
-        list.add(result.health_corrent)
-        list.add(result.job_correct)
-        list.add(result.res_correct)
-        list.add(result.bio_correct)
-        return list
-    }
-
-
     override fun onBackPressed() {
-        FileUtils.writeCacheData(this, Const.CACHE_URI_DIRECTORY, map)
+        FileUtils.writeCacheData(this,Const.CACHE_URI_DIRECTORY,map)
         super.onBackPressed()
     }
 

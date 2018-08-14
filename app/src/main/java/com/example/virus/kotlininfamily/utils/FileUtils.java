@@ -53,6 +53,7 @@ public class FileUtils {
         else return uri;
     }
 
+
     public static Spanned fromHtml(String html) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
@@ -100,7 +101,7 @@ public class FileUtils {
     }
 
     public static <T> void writeCacheData(Context context, String filename, T data) {
-        File cacheDir = new File(context.getCacheDir(), mCacheDir);
+        File cacheDir = new File(context.getCacheDir(), filename);
         if (!cacheDir.exists()) cacheDir.mkdirs();
         try {
             File dir = new File(cacheDir, filename + ".ser");
@@ -116,7 +117,7 @@ public class FileUtils {
     }
 
     public static <T> T readCacheData(Context context, String filename) {
-        File cacheDir = new File(context.getCacheDir(), mCacheDir);
+        File cacheDir = new File(context.getCacheDir(), filename);
         if (!cacheDir.exists()) return null;
         try {
             File dir = new File(cacheDir, filename + ".ser");

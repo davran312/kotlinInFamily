@@ -17,6 +17,7 @@ import retrofit2.Response
  * Created by admin on 8/9/18.
  */
 class LoginPresenter(val view: LoginContract.View?) : LoginContract.Presenter {
+    var token:String = String()
     override fun sendToken(context: Context, activity: LoginActivity) {
         var bodyBuilderForToken = MultipartBody.Builder()
         bodyBuilderForToken = fillTokenRequest(bodyBuilderForToken, context)
@@ -42,9 +43,12 @@ class LoginPresenter(val view: LoginContract.View?) : LoginContract.Presenter {
 
     }
     private fun fillTokenRequest(bodyBuilderForToken: MultipartBody.Builder, context: Context): MultipartBody.Builder {
-        val authInfoList: ArrayList<String> = FileUtils.readCacheData(context, Const.USER_AUTH_INFORMATION)
-        val token: String = FileUtils.readCacheData(context, Const.REFRESHED_TOKEN_FOR_FIREBASE)
-        val name = authInfoList[0]
+        val authInfoList: ArrayList<String>? = FileUtils.readCacheData(context, Const.USER_AUTH_INFORMATION)
+        var tempToken:String? = FileUtils.readCacheData(context, Const.REFRESHED_TOKEN_FOR_FIREBASE)
+        if(tempToken != null){
+            token =FileUtils.readCacheData(context, Const.REFRESHED_TOKEN_FOR_FIREBASE)
+        }
+        val name = authInfoList!![0]
         val deviceId = authInfoList[2]
 
         bodyBuilderForToken.addFormDataPart("name",name)
