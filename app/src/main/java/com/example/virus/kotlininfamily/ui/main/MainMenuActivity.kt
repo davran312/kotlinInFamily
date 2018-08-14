@@ -12,23 +12,26 @@ import com.example.virus.kotlininfamily.ui.main.section_for_parent.ParentActivit
 import kotlinx.android.synthetic.main.activity_header_menu.*
 
 @Suppress("DEPRECATION")
-class MainMenuActivity : AppCompatActivity(), HeaderAdapter.Listener{
+class MainMenuActivity : AppCompatActivity()     {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_header_menu)
-        supportActionBar?.title = Html.fromHtml("<font color=\"white\">" + getString(R.string.app_name) + "</font>")
-        val list = ArrayList<Category>()
-        list.add(Category(getString(R.string.category1), R.drawable.first))
-        list.add(Category(getString(R.string.category2), R.drawable.second))
-        list.add(Category(getString(R.string.category3), R.drawable.third))
-        recyclerViewMain.adapter = HeaderAdapter(list, this)
+        setButtonClickListeners()
+        supportActionBar?.title = Html.fromHtml("<font color=\"#ffffff\">" + getString(R.string.app_name) + "</font>")
     }
-    override fun onItemSelectedAt(position: Int) {
-        startActivity(Intent(this,when(position){
-            0-> BecomeParentActivity::class.java
-            1-> ChildActivity::class.java
-            else -> ParentActivity::class.java
-        }))
+
+    private fun setButtonClickListeners() {
+        button1.setOnClickListener {
+            startActivity(Intent(this,BecomeParentActivity::class.java))
+        }
+        button2.setOnClickListener {
+            startActivity(Intent(this,ChildActivity::class.java))
+        }
+        button3.setOnClickListener {
+            startActivity(Intent(this,ParentActivity::class.java))
+        }
     }
+
+
 }

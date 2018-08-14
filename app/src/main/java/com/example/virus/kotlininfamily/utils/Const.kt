@@ -16,5 +16,6 @@ object Const {
     val REFRESHED_TOKEN_FOR_FIREBASE = "refreshedToken"
     val USER_ID = "userId"
     val CAMERA = 2
+    val GALLERY = 3
 
 }
