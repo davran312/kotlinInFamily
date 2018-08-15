@@ -183,7 +183,8 @@ class MyDialogFragment : DialogFragment() {
         val exist = File(imgPath).exists()
         if (exist)
             v.image_photo.setImageURI(Uri.parse(imgPath))
-        v.image_photo.setImageURI(Uri.parse(imgPath))
+        else
+            v.image_photo.setImageResource(R.drawable.camera)
     }
 
 

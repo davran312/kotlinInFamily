@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
     android:layout_margin="@dimen/size_14"
     android:background="@color/white"
     android:gravity="center_vertical|center_horizontal">
@@ -87,7 +89,7 @@
 
         android:id="@+id/btn_submit_result"
         style="@style/submitButton"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/card"
         android:layout_marginTop="@dimen/size_5"
         android:layout_centerHorizontal="true"
         android:gravity="center"

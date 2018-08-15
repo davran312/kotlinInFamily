@@ -76,7 +76,7 @@ class DocumentPresenter(val view: DocumentContract.View?) : DocumentContract.Pre
                             view!!.onSuccessStatus(response.body()!!)
                                 activity.finish()
                         } else {
-                            view!!.onError("Error")
+                            view!!.onError("Неправильная регистрация")
                         }
                         view.hideProgress()
 

@@ -33,7 +33,7 @@ class LoginPresenter(val view: LoginContract.View?) : LoginContract.Presenter {
                 if (response!!.isSuccessful && response.body() != null) {
                     Log.d("________token", response.message())
                 } else {
-                    view!!.onError("Error on send token")
+                    Log.d("________token","Токен использутеся")
                 }
                 view!!.hideProgress()
 

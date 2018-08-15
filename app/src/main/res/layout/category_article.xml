@@ -28,7 +28,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/size_22"
             android:textStyle="bold"
-            android:fontFamily="@font/times_new_roman"
+
             />
 
 
@@ -36,15 +36,18 @@
         <TextView
             android:id="@+id/tw_article_text"
             android:textSize="@dimen/size_20"
-            android:padding="@dimen/size_25"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_20"
+            android:paddingTop="@dimen/size_10"
+            android:paddingBottom="@dimen/size_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/img_article_image"
             android:text="godd"
             android:textColor="@color/colorArticle"
-            android:fontFamily="@font/times_new_roman"
 
-            />
+
+            android:layout_marginStart="@dimen/size_20" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -34,7 +34,7 @@ class DocumentStatusActivity : BaseActivity(), DocumentContract.View {
 
         }
         val status :Int?= FileUtils.readCacheData(this,"status")
-        Toast.makeText(this,""+status,Toast.LENGTH_SHORT).show()
+        Log.d("_______status",""+status)
         if(status == 4){
             val result = intent.getSerializableExtra("statusBody") as DocumentStatus
             if(result!!.status ==4 ) {
