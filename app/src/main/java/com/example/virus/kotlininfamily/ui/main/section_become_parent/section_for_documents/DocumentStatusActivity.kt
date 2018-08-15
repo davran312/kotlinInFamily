@@ -4,11 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.virus.infamily.mvp.ui.ui.documents.DocumentAdapter
 import com.example.virus.kotlininfamily.R
 import com.example.virus.kotlininfamily.models.DocumentStatus
 import com.example.virus.kotlininfamily.ui.main.BaseActivity
-import com.example.virus.kotlininfamily.ui.main.section_become_parent.BecomeParentPresenter
 import com.example.virus.kotlininfamily.utils.Const
 import com.example.virus.kotlininfamily.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_document_status.*
@@ -48,7 +46,7 @@ class DocumentStatusActivity : BaseActivity(), DocumentContract.View {
 
 
     }
-    public  fun checkDocumentCorrectness( result: DocumentStatus) {
+     fun checkDocumentCorrectness( result: DocumentStatus) {
         val map:HashMap<Int,String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
         val list:ArrayList<Boolean> = getList(result)
         Log.d("thisMytag", result.toString())
@@ -70,8 +68,6 @@ class DocumentStatusActivity : BaseActivity(), DocumentContract.View {
         list.add(result.criminal_correct)
         list.add(result.health_correct)
         list.add(result.job_correct)
-        list.add(result.res_correct)
-        list.add(result.bio_correct)
         return list
     }
 

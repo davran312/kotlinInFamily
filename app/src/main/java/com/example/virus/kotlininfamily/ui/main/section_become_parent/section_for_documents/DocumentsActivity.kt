@@ -74,7 +74,6 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
     }
     public fun getList(result: DocumentStatus): ArrayList<Boolean> {
-        Log.d("result",result.toString())
         val list:ArrayList<Boolean> = ArrayList()
         list.add(result.family_correct)
         list.add(result.income_correct)
@@ -107,7 +106,8 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
 
     private fun initAdapter() {
         val temp: HashMap<Int, String>? = FileUtils.readCacheData(this, Const.CACHE_URI_DIRECTORY)
-        map = temp!!
+        if(temp != null)
+            map = temp!!
         adapter = DocumentAdapter(resources.getStringArray
         (com.example.virus.kotlininfamily.R.array.documents_list), map!!, this)
         recyclerViewOfDocuments.addItemDecoration(DividerItemDecoration(this))

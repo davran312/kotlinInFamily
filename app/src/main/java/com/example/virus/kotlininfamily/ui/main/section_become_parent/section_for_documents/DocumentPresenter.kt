@@ -74,9 +74,7 @@ class DocumentPresenter(val view: DocumentContract.View?) : DocumentContract.Pre
                         if (response!!.isSuccessful && response.body() != null) {
                             view!!.onSuccess(response!!.body()!!)
                             view!!.onSuccessStatus(response.body()!!)
-                            Log.d("___________", response.body().toString())
-                            map.clear()
-                            activity.finish()
+                                activity.finish()
                         } else {
                             view!!.onError("Error")
                         }

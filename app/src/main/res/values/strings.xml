@@ -26,9 +26,9 @@
     <string name="first_title">Порядок установления опеки и попечительства над
         нуждающимся в установлении опеки и попечительства лицами</string>
     <string-array name="documents_list">
-        <item>Полная автобиография</item>
-        <item>Справка с места работы</item>
         <item>Справка о заработной плате</item>
+        <item>Справка с места работы</item>
+        <item>Полная автобиография</item>
         <item>Справка органов внутренних дел</item>
         <item>Медицинское заключение</item>
         <item>Xарактеристика с места работы и Характеристика с места жительства</item>
@@ -340,8 +340,6 @@
         <item>criminal_record</item>
         <item>health</item>
         <item>char_job</item>
-        <item>char_res</item>
-        <item>biography</item>
 
     </string-array>
 

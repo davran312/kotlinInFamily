@@ -60,7 +60,9 @@ class LoginActivity :BaseActivity(),LoginContract.View {
             return false
         }
         else{
+
             saveAuthFieldToCache(name,mail,phone)
+
             presenter.sendToken(this,this)
         return true
         }
