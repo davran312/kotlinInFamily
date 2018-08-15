@@ -42,7 +42,6 @@ class DocumentsActivity : BaseActivity(), DocumentAdapter.Listener, DocumentCont
         initListeners()
     }
     override fun onSuccessStatus(response:DocumentStatus) {
-        checkDocumentCorrectness(response)
         FileUtils.writeCacheData(this,Const.UDAPTE_APPLICATION_STATUS,response.status)
     }
 
